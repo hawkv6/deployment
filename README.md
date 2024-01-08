@@ -16,8 +16,12 @@ To deploy the cluster, follow these steps.
 	```
 	cat deployment/jalapeno-values.yaml > jalapeno-helm/jalapeno-helm/values.yaml
 	``` 
-3. Create the namespace `hawkv6-jalapeno` 
-4. Install Jalapeno with the command
+3. Copy the content of the `collector-telegraf-ingress-cm.yaml` file into according Telegraf ingress config file. This will ensure that the correct topics in Kafka will be used to use the [clab-telemetry-linker](https://github.com/hawkv6/clab-telemetry-linker)
+	```
+	cat  deployment/collector-telegraf-ingress-cm.yaml > jalapeno-helm/jalapeno-helm/templates/collectors/telegraf-ingress/collector-telegraf-ingress-cm.yaml
+	```
+4. Create the namespace `hawkv6-jalapeno` 
+5. Install Jalapeno with the command
 	```
 	helm install jalapeno ./jalapeno-helm -n hawkv6-jalapeno
 	```
@@ -41,3 +45,6 @@ To deploy the cluster, follow these steps.
     helm install jagw jagw -n hawkv6-jagw 
 	``` 
 	This command has to be executed in the `jagw-helm` folder.
+
+### Change Telegraf Ingress config
+Please copy the To use the Telegraf config found in `collector-telegraf-ingress-cm.yaml` 

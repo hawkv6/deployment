@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Values.collectors.telegrafIngress.name }}-config"
+data:
+  telegraf.conf: |
+    [agent]
+      interval = "10s"
+      round_interval = true
+      metric_buffer_limit = 10000
+      flush_buffer_when_full = true
+      collection_jitter = "0s"
+      flush_interval = "10s"
+      flush_jitter = "0s"
+      debug = false
+      quiet = false
+      hostname = "telegraf"
+
+    [[inputs.cisco_telemetry_mdt]]
+      transport = "grpc"
+      service_address = ":57400"
+      embedded_tags = ["Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/label-information/outgoing-interface"]
+      [inputs.cisco_telemetry_mdt.aliases]
+        performance_monitoring = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail"
+        isis = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/interfaces/interface"
+        utilization = "openconfig-interfaces:interfaces/interface/state/counters"
+
+    [[outputs.kafka]]
+      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      topic = "hawkv6.telemetry.unprocessed"
+      data_format="json"
+      namepass = ["performance_monitoring", "isis", "utilization"] 
+
+    [[outputs.kafka]]
+      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      topic = "jalapeno.telemetry"
+      namedrop = ["performance_monitoring", "isis", "utilization"] 
+    
