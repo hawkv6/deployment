@@ -169,6 +169,17 @@ kafka:
     repository: bitnami/kafka
     tag: 2.8.0-debian-10-r57
   replicacount: 1
+  externalAccess:
+    enabled: true
+    service:
+      loadBalancerIPs:
+      - 172.16.19.77
+    autoDiscovery:
+      enabled: true
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
   # service:
   #   type: NodePort
   # externalAccess:
