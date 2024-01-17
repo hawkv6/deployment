@@ -16,12 +16,16 @@ To deploy the cluster, follow these steps.
 	```
 	cat deployment/jalapeno-values.yaml > jalapeno-helm/jalapeno-helm/values.yaml
 	``` 
-3. Copy the content of the `collector-telegraf-ingress-cm.yaml` file into according Telegraf ingress config file. This will ensure that the correct topics in Kafka will be used to use the [clab-telemetry-linker](https://github.com/hawkv6/clab-telemetry-linker)
+3. Copy the content of the `collector-telegraf-ingress-cm.yaml` file into the config map used for the Telegraf ingress service. This will ensure that the correct topics in Kafka will be used to transfer data to the [clab-telemetry-linker](https://github.com/hawkv6/clab-telemetry-linker)
 	```
 	cat  deployment/collector-telegraf-ingress-cm.yaml > jalapeno-helm/jalapeno-helm/templates/collectors/telegraf-ingress/collector-telegraf-ingress-cm.yaml
 	```
-4. Create the namespace `hawkv6-jalapeno` 
-5. Install Jalapeno with the command
+3. Copy the content of the `processors-telegraf-egress-cm.yaml` file into the config map used for the Telegraf egress service. This will ensure that the data are forwarded to the InfluxDB:
+	```
+	cat  deployment/processors-telegraf-egress-cm.yaml > jalapeno-helm/jalapeno-helm/templates/processors/telegraf-egress/processors-telegraf-egress-cm.yaml
+	```
+5. Create the namespace `hawkv6-jalapeno` 
+6. Install Jalapeno with the command
 	```
 	helm install jalapeno ./jalapeno-helm -n hawkv6-jalapeno
 	```
