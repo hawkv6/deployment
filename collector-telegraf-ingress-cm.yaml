@@ -19,11 +19,15 @@ data:
     [[inputs.cisco_telemetry_mdt]]
       transport = "grpc"
       service_address = ":57400"
+      include_delete_field = true
       embedded_tags = ["Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/label-information/outgoing-interface"]
       [inputs.cisco_telemetry_mdt.aliases]
         performance-measurement = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail"
         isis = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/interfaces/interface"
         utilization = "openconfig-interfaces:interfaces/interface/state/counters"
+        oper-state = "openconfig-interfaces:interfaces/interface/state"
+        ipv6-addresses = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address"
+
 
     [[outputs.kafka]]
       brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
@@ -33,8 +37,15 @@ data:
 
     [[outputs.kafka]]
       brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      topic = "hawkv6.openconfig"
+      data_format="json"
+      namepass = ["oper-state", "ipv6-addresses"] 
+
+    [[outputs.kafka]]
+      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
       topic = "jalapeno.telemetry"
-      namedrop = ["performance-measurement", "isis"] 
+      namedrop = ["performance-measurement", "isis", "oper-state", "ipv6-addresses"] 
+
 
     [[outputs.file]]
       files = ["stdout"]

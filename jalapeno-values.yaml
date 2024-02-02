@@ -114,12 +114,6 @@ influxdb:
   influxdb:
     extraEnvVars:
       # Don't change the ordering!
-      # - name: INFLUXDB_DB
-      #   value: "mdt_db"
-      # - name: INFLUXDB_USER
-      #   value: jalapeno
-      # - name: INFLUXDB_USER_PASSWORD
-      #   value: jalapeno
       - name: INFLUXDB_DB
         value: "mdt_db"
       - name: INFLUXDB_USER
@@ -132,10 +126,15 @@ influxdb:
     #   nodePorts:
     #     http: 30308
     service:
-      type: ClusterIP
-      ports:
-        http: 8086
-        rpc: 8088
+      type: LoadBalancer
+      loadBalancerIP: 172.16.19.76
+      annotations:
+        metallb.universe.tf/address-pool: load-balanced
+    # service:
+    #   type: ClusterIP
+    #   ports:
+    #     http: 8086
+    #     rpc: 8088
 
 # https://github.com/bitnami/charts/tree/master/bitnami/grafana
 grafana:
