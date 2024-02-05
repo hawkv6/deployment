@@ -1,9 +1,9 @@
 imagePullSecrets: []
 
 release:
-  cacheServiceTag: v1.3.2
-  requestServiceTag: v1.3.2
-  subscriptionServiceTag: v1.3.2
+  cacheServiceTag: v1.3.3
+  requestServiceTag: v1.3.3
+  subscriptionServiceTag: v1.3.3
 
 config:
   arangoDB: jalapeno-arangodb.hawkv6-jalapeno.svc.cluster.local:8086 # change to your domain
