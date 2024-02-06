@@ -24,7 +24,7 @@ collectors:
   telegrafIngress:
     name: telegraf-ingress
     replicas: 1
-    image: telegraf:1.28-alpine
+    image: telegraf:1.29-alpine
     imagePullSecret: regcred
     port: 32400
     # resources:
@@ -54,7 +54,7 @@ processors:
   telegrafEgress:
     name: telegraf-egress
     replicas: 1
-    image: telegraf:1.28-alpine
+    image: telegraf:1.29-alpine
     imagePullSecret: regcred
     # resources:
     #   requests:
