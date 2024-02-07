@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 9,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -27,10 +27,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -189,7 +186,7 @@
         },
         "datasource": {
           "type": "influxdb",
-          "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          "uid": "dd23a112-10ee-410b-8ef0-856c29bf3a1a"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,

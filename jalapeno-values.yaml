@@ -87,7 +87,7 @@ arangodb:
     #     http: 30852
   ingress:
     enabled: true
-    hostname: arango-hawkv6.dev.network.garden # change to your domain
+    hostname: arango-hawkv6.stud.network.garden # change to your domain
   auth:
     admin:
       username: root
@@ -155,10 +155,10 @@ grafana:
       grafana: 3000
   ingress:
     enabled: true
-    hostname: grafana-hawkv6.dev.network.garden # change to your domain
+    hostname: grafana-hawkv6.stud.network.garden # change to your domain
     tls:
       - hosts:
-        - grafana-hawkv6.dev.network.garden # change to your domain
+        - grafana-hawkv6.stud.network.garden # change to your domain
         secretName: ingress-certificate-secret-prod
 
 # https://github.com/bitnami/charts/tree/master/bitnami/kafka

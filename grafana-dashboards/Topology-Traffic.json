@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -27,10 +27,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -239,10 +236,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -382,10 +376,7 @@
       }
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -546,7 +537,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+        "uid": "dd23a112-10ee-410b-8ef0-856c29bf3a1a"
       },
       "fieldConfig": {
         "defaults": {
@@ -687,10 +678,7 @@
       }
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -845,7 +833,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -859,10 +847,6 @@
           "value": [
             "$__all"
           ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
@@ -883,8 +867,8 @@
     ]
   },
   "time": {
-    "from": "now-15m",
-    "to": "now"
+    "from": "2024-02-07T09:55:57.371Z",
+    "to": "2024-02-07T10:25:57.371Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -903,6 +887,6 @@
   "timezone": "",
   "title": "Topology Traffic",
   "uid": "9YqEpP5Sk",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }

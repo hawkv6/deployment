@@ -23,10 +23,7 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -194,10 +191,6 @@
             "$__all"
           ]
         },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
-        },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
         "includeAll": true,
@@ -237,6 +230,6 @@
   "timezone": "",
   "title": "Delay",
   "uid": "RusLpE5Ik",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }
