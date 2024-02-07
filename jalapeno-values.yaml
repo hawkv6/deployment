@@ -17,7 +17,7 @@ collectors:
         memory: 1024Mi
         cpu: 1
     service:
-      loadBalancerIP: 172.16.19.75
+      loadBalancerIP: 10.8.39.65
       annotations:
         metallb.universe.tf/address-pool: load-balanced
 
@@ -35,7 +35,7 @@ collectors:
     #     memory:
     #     cpu:
     service:
-      loadBalancerIP: 172.16.19.74
+      loadBalancerIP: 10.8.39.66
       annotations:
         metallb.universe.tf/address-pool: load-balanced
 
@@ -79,7 +79,7 @@ arangodb:
   image:
     registry: docker.io
     repository: arangodb
-    tag: 3.6.12
+    tag: 3.11.7
   arangodb:
     service:
       type: ClusterIP
@@ -106,7 +106,7 @@ influxdb:
   image:
     repository: bitnami/influxdb
     #tag: 2.0.7-debian-10-r34
-    tag: 1.7.8-r24 # newest release for oldest influxdb version
+    tag: 1.8.5 # newest release for oldest influxdb version
   auth:
     admin:
       username: admin
@@ -127,7 +127,7 @@ influxdb:
     #     http: 30308
     service:
       type: LoadBalancer
-      loadBalancerIP: 172.16.19.76
+      loadBalancerIP: 10.8.39.67
       annotations:
         metallb.universe.tf/address-pool: load-balanced
     # service:
@@ -141,7 +141,7 @@ grafana:
   fullnameOverride: grafana
   image:
     repository: bitnami/grafana
-    tag: 8.0.6-debian-10-r0
+    tag: 10.3.1-debian-11-r2
   admin:
     user: root
     password: jalapeno
@@ -166,13 +166,13 @@ kafka:
   fullnameOverride: kafka
   image:
     repository: bitnami/kafka
-    tag: 2.8.0-debian-10-r57
+    tag: 3.6.1-debian-11-r6
   replicacount: 1
   externalAccess:
     enabled: true
     service:
       loadBalancerIPs:
-      - 172.16.19.77
+      - 10.8.39.68
     autoDiscovery:
       enabled: true
   serviceAccount:

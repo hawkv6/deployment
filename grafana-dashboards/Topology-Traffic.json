@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -13,21 +16,25 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1706530240423,
+  "id": 4,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+      },
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "links": [],
+          "unitScale": true
         },
         "overrides": []
       },
@@ -57,7 +64,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "10.3.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -68,6 +75,10 @@
       "targets": [
         {
           "alias": "Ingress: [[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -129,6 +140,10 @@
         },
         {
           "alias": "Egress: [[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -190,9 +205,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Ingress vs Egress",
       "tooltip": {
         "shared": true,
@@ -201,33 +214,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -235,10 +239,14 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+      },
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "links": [],
+          "unitScale": true
         },
         "overrides": []
       },
@@ -268,7 +276,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "10.3.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -279,6 +287,10 @@
       "targets": [
         {
           "alias": "[[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -340,9 +352,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Ingress",
       "tooltip": {
         "shared": true,
@@ -351,43 +361,40 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "datasource": null,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -399,6 +406,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -430,7 +438,8 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "bytes",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -445,16 +454,22 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "[[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -521,8 +536,6 @@
           ]
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Ingress Average",
       "type": "timeseries"
     },
@@ -531,10 +544,14 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+      },
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "links": [],
+          "unitScale": true
         },
         "overrides": []
       },
@@ -564,7 +581,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "10.3.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -575,6 +592,10 @@
       "targets": [
         {
           "alias": "[[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -636,9 +657,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Egress",
       "tooltip": {
         "shared": true,
@@ -647,43 +666,40 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "datasource": null,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -695,6 +711,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -726,7 +743,8 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "bytes",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -741,16 +759,22 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "[[tag_source]] - [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+          },
           "groupBy": [
             {
               "params": [
@@ -817,32 +841,32 @@
           ]
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Egress Average",
       "type": "timeseries"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 30,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
-        "datasource": "InfluxDB",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
+        },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
         "name": "Devices",
         "options": [],
@@ -879,5 +903,6 @@
   "timezone": "",
   "title": "Topology Traffic",
   "uid": "9YqEpP5Sk",
-  "version": 1
+  "version": 3,
+  "weekStart": ""
 }
