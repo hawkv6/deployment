@@ -43,7 +43,7 @@ processors:
   lslinknodeEdge:
     name: lslinknode-edge
     replicas: 1
-    image: ghcr.io/jalapeno-api-gateway/jalapeno/lslinknode-edge:v1.0.0
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/lslinknode-edge:v1.0.1
     # resources:
     #   requests:
     #     memory:
@@ -66,7 +66,7 @@ processors:
   topology:
     name: topology
     replicas: 1
-    image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.0
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.1
     # resources:
     #   requests:
     #     memory:

@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -183,10 +183,6 @@
           "value": [
             "$__all"
           ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "dd23a112-10ee-410b-8ef0-856c29bf3a1a"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
