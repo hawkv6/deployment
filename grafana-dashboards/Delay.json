@@ -191,6 +191,10 @@
             "$__all"
           ]
         },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+        },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
         "includeAll": true,
@@ -230,6 +234,6 @@
   "timezone": "",
   "title": "Delay",
   "uid": "RusLpE5Ik",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

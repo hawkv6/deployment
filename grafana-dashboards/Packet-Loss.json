@@ -18,12 +18,15 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -178,7 +181,7 @@
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "1s"
               ],
               "type": "time"
             },
@@ -242,6 +245,10 @@
             "$__all"
           ]
         },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+        },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
         "includeAll": true,
@@ -261,7 +268,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -281,6 +288,6 @@
   "timezone": "",
   "title": "Packet Loss",
   "uid": "6ASPpEcIz",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }

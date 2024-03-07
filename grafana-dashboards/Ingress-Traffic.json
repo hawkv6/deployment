@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -27,7 +27,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+      },
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -81,7 +84,7 @@
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "30s"
               ],
               "type": "time"
             },
@@ -183,6 +186,10 @@
           "value": [
             "$__all"
           ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,

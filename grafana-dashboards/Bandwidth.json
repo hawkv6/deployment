@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -184,6 +184,10 @@
             "$__all"
           ]
         },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+        },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
         "includeAll": true,
@@ -203,7 +207,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30s",
     "to": "now"
   },
   "timepicker": {
@@ -223,6 +227,6 @@
   "timezone": "",
   "title": "Bandwidth",
   "uid": "yljLtP5Iz",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
