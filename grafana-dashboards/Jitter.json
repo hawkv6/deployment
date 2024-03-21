@@ -18,12 +18,15 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 8,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "d7a97475-306d-40d7-b9c7-c80a095067e6"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -45,14 +48,17 @@
               "viz": false
             },
             "insertNulls": false,
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": true,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -76,35 +82,10 @@
               }
             ]
           },
-          "unit": "bytes",
+          "unit": "µs",
           "unitScale": true
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "GigabitEthernet0/0/0/0"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -116,27 +97,25 @@
       "options": {
         "legend": {
           "calcs": [
-            "lastNotNull",
             "min",
             "max",
-            "mean",
-            "count"
+            "mean"
           ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "8.0.6",
       "repeat": "Devices",
       "repeatDirection": "v",
       "targets": [
         {
-          "alias": "[[tag_name]]",
+          "alias": "[[tag_interface_name]]",
           "datasource": {
             "type": "influxdb",
             "uid": "dc83201e-e5b0-4e39-95b5-829c265ad665"
@@ -150,7 +129,7 @@
             },
             {
               "params": [
-                "name"
+                "interface_name"
               ],
               "type": "tag"
             },
@@ -159,32 +138,31 @@
                 "source"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
-          "measurement": "utilization",
+          "hide": false,
+          "measurement": "performance-measurement",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT non_negative_derivative(\"out_octets\", 1s) FROM \"utilization\" WHERE (\"source\" =~ /^$Devices$/) AND $timeFilter GROUP BY \"name\", \"source\"",
-          "rawQuery": false,
-          "refId": "A",
+          "refId": "B",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "out_octets"
+                  "delay_measurement_session/last_advertisement_information/advertised_values/variance"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "last"
-              },
-              {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
               }
             ]
           ],
@@ -201,7 +179,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "auto",
+  "refresh": "5s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -215,6 +193,10 @@
           "value": [
             "$__all"
           ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "d7a97475-306d-40d7-b9c7-c80a095067e6"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
@@ -253,8 +235,8 @@
     ]
   },
   "timezone": "",
-  "title": "Egress Traffic",
-  "uid": "ydxPtEcSk",
+  "title": "Jitter",
+  "uid": "2rdf3re",
   "version": 2,
   "weekStart": ""
 }

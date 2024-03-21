@@ -25,7 +25,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
+        "uid": "d7a97475-306d-40d7-b9c7-c80a095067e6"
       },
       "fieldConfig": {
         "defaults": {
@@ -198,6 +198,7 @@
               "type": "tag"
             }
           ],
+          "hide": false,
           "measurement": "isis",
           "orderByTime": "ASC",
           "policy": "default",
@@ -230,7 +231,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
+  "refresh": "auto",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -244,10 +245,6 @@
           "value": [
             "$__all"
           ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
@@ -268,7 +265,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30s",
     "to": "now"
   },
   "timepicker": {
@@ -288,6 +285,6 @@
   "timezone": "",
   "title": "Packet Loss",
   "uid": "6ASPpEcIz",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }

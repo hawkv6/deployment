@@ -23,7 +23,10 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cbf5cd71-2ede-4e2a-b32d-9d59daf34a70"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -79,7 +82,32 @@
           "unit": "bytes",
           "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Ingress: SITE-A - GigabitEthernet0/0/0/0"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 11,
@@ -153,7 +181,7 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               }
@@ -218,7 +246,7 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               }
@@ -237,7 +265,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cbf5cd71-2ede-4e2a-b32d-9d59daf34a70"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -293,32 +324,7 @@
           "unit": "bytes",
           "unitScale": true
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "SITE-A - GigabitEthernet0/0/0/0"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -392,7 +398,7 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               }
@@ -411,7 +417,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cbf5cd71-2ede-4e2a-b32d-9d59daf34a70"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -467,32 +476,7 @@
           "unit": "bytes",
           "unitScale": true
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "SITE-A - GigabitEthernet0/0/0/0"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -566,13 +550,13 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               },
               {
                 "params": [
-                  40
+                  10
                 ],
                 "type": "moving_average"
               }
@@ -591,7 +575,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cbf5cd71-2ede-4e2a-b32d-9d59daf34a70"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -648,7 +635,32 @@
           "unit": "decbytes",
           "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "SITE-A - GigabitEthernet0/0/0/0"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -722,7 +734,7 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               }
@@ -741,7 +753,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cbf5cd71-2ede-4e2a-b32d-9d59daf34a70"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -797,32 +812,7 @@
           "unit": "Bps",
           "unitScale": true
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "SITE-A - GigabitEthernet0/0/0/0"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -896,13 +886,13 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
                 "type": "non_negative_derivative"
               },
               {
                 "params": [
-                  40
+                  10
                 ],
                 "type": "moving_average"
               }
@@ -921,7 +911,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
+  "refresh": "auto",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -935,10 +925,6 @@
           "value": [
             "$__all"
           ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
@@ -959,7 +945,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30s",
     "to": "now"
   },
   "timepicker": {
@@ -978,7 +964,7 @@
   },
   "timezone": "",
   "title": "Topology Traffic",
-  "uid": "9YqEpP5Sk",
-  "version": 3,
+  "uid": "b5b4ce9f-23e1-4ff2-9065-0d34a82a3eb9",
+  "version": 4,
   "weekStart": ""
 }

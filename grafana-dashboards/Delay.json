@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -176,7 +176,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
+  "refresh": "auto",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -190,10 +190,6 @@
           "value": [
             "$__all"
           ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "b03f796b-4646-4a88-9ad7-abf03f492c45"
         },
         "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
         "hide": 0,
@@ -214,7 +210,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30s",
     "to": "now"
   },
   "timepicker": {
@@ -234,6 +230,6 @@
   "timezone": "",
   "title": "Delay",
   "uid": "RusLpE5Ik",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }

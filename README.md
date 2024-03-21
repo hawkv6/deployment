@@ -49,6 +49,3 @@ To deploy the cluster, follow these steps.
     helm install jagw jagw -n hawkv6-jagw 
 	``` 
 	This command has to be executed in the `jagw-helm` folder.
-
-### Change Telegraf Ingress config
-Please copy the To use the Telegraf config found in `collector-telegraf-ingress-cm.yaml` 
