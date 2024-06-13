@@ -18,7 +18,7 @@ data:
 
     [[inputs.kafka_consumer]]
       brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
-      topics = ["jalapeno.telemetry", "hawkv6.telemetry.processed"]
+      topics = ["jalapeno.telemetry", "hawkv6.telemetry.processed", "hawkv6.telemetry.normalized"]
       max_message_len = 1000000
 
     [[outputs.influxdb]]
@@ -28,7 +28,7 @@ data:
       password = "{{ (index .Values.influxdb.influxdb.extraEnvVars 2).value }}"
       precision = "s"
       timeout = "5s"
-
+    
     [[outputs.file]]
       files = ["stdout"]
       rotation_interval = "1h"

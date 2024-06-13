@@ -1,0 +1,6095 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 19,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+      },
+      "flowchartsData": {
+        "flowcharts": [
+          {
+            "allowDrawio": false,
+            "center": true,
+            "csv": "## See more information for the syntax at https://drawio-app.com/import-from-csv-to-drawio/\n##\n## Example CSV. Use ## for comments and # for configuration.\n## The following names are reserved and should not be used (or ignored):\n## id, tooltip, placeholder(s), link and label (see below)\n##\n#\n## Node label with placeholders and HTML.\n## Default is '%name_of_first_column%'.\n#\n# label: %name%<br><i style=\"color:gray;\">%position%</i><br><a href=\"mailto:%email%\">Email</a>\n#\n## Node style (placeholders are replaced once).\n## Default is the current style for nodes.\n#\n# style: label;image=%image%;whiteSpace=wrap;html=1;rounded=1;fillColor=%fill%;strokeColor=%stroke%;\n#\n## Parent style for nodes with child nodes (placeholders are replaced once).\n#\n# parentstyle: swimlane;whiteSpace=wrap;html=1;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;\n#\n## Optional column name that contains a reference to a named style in styles.\n## Default is the current style for nodes.\n#\n# stylename: -\n#\n## JSON for named styles of the form {\"name\": \"style\", \"name\": \"style\"} where style is a cell style with\n## placeholders that are replaced once.\n#\n# styles: -\n#\n## Optional column name that contains a reference to a named label in labels.\n## Default is the current label.\n#\n# labelname: -\n#\n## JSON for named labels of the form {\"name\": \"label\", \"name\": \"label\"} where label is a cell label with\n## placeholders.\n#\n# labels: -\n#\n## Uses the given column name as the identity for cells (updates existing cells).\n## Default is no identity (empty value or -).\n#\n# identity: -\n#\n## Uses the given column name as the parent reference for cells. Default is no parent (empty or -).\n## The identity above is used for resolving the reference so it must be specified.\n#\n# parent: -\n#\n## Adds a prefix to the identity of cells to make sure they do not collide with existing cells (whose\n## IDs are numbers from 0..n, sometimes with a GUID prefix in the context of realtime collaboration).\n## Default is csvimport-.\n#\n# namespace: csvimport-\n#\n## Connections between rows (\"from\": source colum, \"to\": target column).\n## Label, style and invert are optional. Defaults are '', current style and false.\n## If placeholders are used in the style, they are replaced with data from the source.\n## An optional placeholders can be set to target to use data from the target instead.\n## In addition to label, an optional fromlabel and tolabel can be used to name the column\n## that contains the text for the label in the edges source or target (invert ignored).\n## The label is concatenated in the form fromlabel + label + tolabel if all are defined.\n## The target column may contain a comma-separated list of values.\n## Multiple connect entries are allowed.\n#\n# connect: {\"from\": \"manager\", \"to\": \"name\", \"invert\": true, \"label\": \"manages\", \\\n#          \"style\": \"curved=1;endArrow=blockThin;endFill=1;fontSize=11;\"}\n# connect: {\"from\": \"refs\", \"to\": \"id\", \"style\": \"curved=1;fontSize=11;\"}\n#\n## Node x-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# left: \n#\n## Node y-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# top: \n#\n## Node width. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the width. Default is auto.\n#\n# width: auto\n#\n## Node height. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the height. Default is auto.\n#\n# height: auto\n#\n## Padding for autosize. Default is 0.\n#\n# padding: -12\n#\n## Comma-separated list of ignored columns for metadata. (These can be\n## used for connections and styles but will not be added as metadata.)\n#\n# ignore: id,image,fill,stroke,refs,manager\n#\n## Column to be renamed to link attribute (used as link).\n#\n# link: url\n#\n## Spacing between nodes. Default is 40.\n#\n# nodespacing: 40\n#\n## Spacing between levels of hierarchical layouts. Default is 100.\n#\n# levelspacing: 100\n#\n## Spacing between parallel edges. Default is 40. Use 0 to disable.\n#\n# edgespacing: 40\n#\n## Name or JSON of layout. Possible values are auto, none, verticaltree, horizontaltree,\n## verticalflow, horizontalflow, organic, circle or a JSON string as used in Layout, Apply.\n## Default is auto.\n#\n# layout: auto\n#\n## ---- CSV below this line. First line are column names. ----\nname,position,id,location,manager,email,fill,stroke,refs,url,image\nEvan Miller,CFO,emi,Office 1,,me@example.com,#dae8fc,#6c8ebf,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png\nEdward Morrison,Brand Manager,emo,Office 2,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png\nRon Donovan,System Admin,rdo,Office 3,Evan Miller,me@example.com,#d5e8d4,#82b366,\"emo,tva\",https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png\nTessa Valet,HR Director,tva,Office 4,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png\n",
+            "download": false,
+            "editorTheme": "dark",
+            "editorUrl": "https://www.draw.io",
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://<YourUrl>/<Your XML/drawio file/api>",
+            "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<mxfile compressed=\"false\" host=\"app.diagrams.net\" modified=\"2024-06-04T08:10:16.992Z\" agent=\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36\" version=\"24.4.13\" etag=\"YqSdDsStvL_Q7MQ0m2by\" type=\"device\"><diagram id=\"Network Topology\" name=\"Network Topology\">7V1Zc+I6E/01ebyULFleHlkSQgrDTGAmgZev2IZ9KZaw/PpPNiZgFiGFzEhAz9xbg2Ujt7qP1NI5lnkgyf4iPa6MWt6w3ug9YFRfPJDUA8aGZZnsH79kuS6xqbEuaI7b9fCibUGhvWqEhSgsnbXrjUnkwulw2Ju2R9HC2nAwaNSmkbLKeDycRy/7M+xF7zqqNBsHBYVapXdY+tauT1vrUowQ2p54brSbrfDW5uZEtVLrNsfD2SC83wMmZoralrU+3a9s6gqvn7Qq9eF8p4g8PpDkeDicrj/1F8lGz/ftxm3r7z2dOPtp97gxmB75wrDa8d2FUa9SZSFbm/iIHxz04CTW391U1fc/xGvswv9alXn3w/rv/fU/gxWl2+g//69xeBrvnN625tPKyXS5cTArYLFkB4l5qz1tFEaVmn9mzuDEylrTvm8cu0OiMhmtA/ynvWgwixJ/hoNpctgbjoOKyFPwJywPgWT5h+1eb+eyxGPSSTF7EpPpeNhtbM4MhgPfhsEwG/rDv+WhD0O3fjTG08ZipyhsXrox7Dem4yW7JDxrURKzCLIwtajhsuN1BWFvMGwSI9ShFkYmsahpkPXp+RZqYf9p7WIshHcI7ebnTbfhZR9CZ28Ow4CLBn8ynI1rYYguDD3rsZVxszH9RjRtwdlrD7r/+7sAHdTj/kCyBUln1h8VwguaAUyjWPLBiPy/PAjp7uBGPTIwHgJ83OhVpu2P6DipCpPRBpxpvjJMylqpESa1cLCGmBROkvjwNIEkuUmSOIYc00DIsgzkuNEkSZAZo9RxbGRa2Gb/mVeWJEVCL9lfxKqUSpKXAVRpklTmYA0HJI7LiPgYjtVhUtZKjTCphYM1xCQ3Se7m+SPTAAuS5IYRwSRmYNckNmJ/HYtGl5LYvoK0KBtsgR4iX6XUPP0ySCqdpytzsIZDEMdlFn/UjjZfGSZlrdQIk1o4WENMCqfFI4nfhLS4PuuYToyahGKEKCGI7mVF14y52DIMjIjhOoRcW5IUCb1kfxGrUipJXgZQpUlSmYM1HJA4LjPFx3DRpc1fwKSslRphUgsHa4hJ4SRJ+KvjM5Oi206SNnFj0cSIMY25BJkOdg1imy69BuVRNtySfUSsSqnEeBkolSZGZQ7WcBAS5PzOqFhEHSZlrdQIk1o4WENMchPjbhPOpP67TowORTGEiGn7T3QhhPeSpENihmu7hmW77I9DryBHykZeoLvIVyk1Hl2GT6XjkTIHazgeCa5tjgzh0eYrw6SslRphUgsHa4hJ4Rx5ZBZgA8MankWUxDCh1HEtxzT3n2ElFF9ZWhQJtmQPEatSKi1eBkmlaVGZgzUcgjguizbgTPOVYVLWSo0wqYWDNcQkNy3uZvYjiZ9CWtykRWzGbNd0DYws28GWE107bilXrROjbLgF+oh8lVJz88tAqXRurszBGg5CHJdR/rgdbb4yTMpaqREmtXCwhpjkJsbdJpx55uiuOVUDYzeGsOHaBjVN2zAjedFwacx2LMewkU0M27CuIEfKRl6gu8hXKTUeXYZPpeORMgdrOB4JPlR5pH1UD0zKWqkRJrVwsIaYFM6RR2YBtni8bz5Hkhilfn4kNnFtsic82m7MJYStKU1sEsc0rixJioResr+IVSmVJC8DqNIkqczBGg5IggTgmTFcdJ3zFzApa6VGmNTCwRpikpskd/P8EQ7ZAYY1PGuaTsym1ECWRdh/Dj5YSSJKkEVcx3Ad7F6DDikbe4EOI1+l1LT9MoQqnbYrc7CGIxLHZdEGnGm+MkzKWqkRJrVwsIaYFM6S5t7pQqb4+F9CfF5043mSUhzDhmO5NjLY0tIi0Tx5FW8GkA+3ZC8RrVQqOV4KTKXpUambNRyOTrntSBPOuEAVOr9kqS7o1MnNGqJTOFmeWTTfd6okhzshqROjLmJZ1EGm7V4D1SobbclOIlalVJ68DJNKs6QyB2s4BgkygWcGboWYlLVSI0xq4WANMcnNi7tNOLNMvm890sT+a3QMQh2HmBTvPbSDXSuGbGo4puW62LGNa3iyVTb2Ah1GvkqpEekyhCodkZQ5WMMRSZAJPKKXRZuvDJOyVmqESS0crCEmhbPk0RVyEtaPDxuqFcVsQjGxXNslyI2kyevYCikfbclOIlqpVG68FJdKs6NSN2s4GnEpwGgTzrhAFTq/ZKku6NTJzRqik5srHY7bDtjk+358x6JGjNoWJa7juK5p7f32lYNjmJrItpBlIXINmVM+9gKd5iuVSs3gL0Wp0jm8UjdrODYJi2dHnjNxDkdfBej8kqW6oFMnN2uITuHMub+OPpgd3HvmxDHDJaZhG2yhae7vDnHtmGFYiCLs+D+xehV7KOWjL9ltRCuVyp2X4lRp7lTqZg1HJ+Hl0JlBXZQ4/H50fslSXdCpk5s1ROfp3Bk0Is53nCE+Jt127jQxiVkOS57+0zwWdVF01XkVr+X5UsDP9ZQvViowIH0fNBUMSJq4WcMBSfDHN/fbd8QBqtD5JUt1QadObtYQnWfS5e56eV8Hfs4XisEFjWnrvp/6cTCNGTa1EEYsY1JqR3KlcTW5UiraQn1EskZJyusCRCrmu5R4V8Ph55TDotafbboSOMrbqAsc9fCuhnA8kw2T5xqYhGzoZ0Mj5hoOQbZhYstAUdaVXE02lIq2UAeRrFGSxLoAkYoZLCXe1XD44Y7XSc54nfzSeP2tcJS3URc46uFdDeF4OhsG9sc5LouLB/u2syHLYzGLUP99AoZrGcbey3eugkeVj/a5DvKVGgWGn29CpILhR7l3NRx+hPnmo6Nr/EF8+vD9cJS3URc46uHdfw3HT8dvwtocD2ej/w4o3fXoX+nNwhuHvtxGK/ieeN7AqDYcDJgZleqmBnS8weG3KELRBLI53kkfDjnMHzaVdtGxLrp1wsZRx1x0EsuTVmXkf2z3K358E8G/8V67OWCFNeatxnhT+pu5ql2r9DZnGa7qfjWJwJofw0l72h76J3qNP1N/ehBeN163OfERfj+7d/l0GHQYNs1oD5rZ4LsptHP95n7V4XQ67G8vLfrfC64MC8Kj/VnIpuPtN7VRbwdBTk4mr7NeIwgDTcYm0wea8B9Wo+zb5lm7g8YnKrWuj7NBfW/2crINB3OnteM3pWhTwj7XK9MK64/rQ/w0+Wg+4MSCzcJw8sdzDpeXCbP6tpjVViOzmu7NKivUrjy/olpq+JEldVJfUuIt6UetX/vwil2aL7jr65aZZiNtTKoDz830W6j+HLeyS5d9ozarr7xZlbwMsqvM3EvFP2qkPMi0/fvMrRqbA5bwLzczSCzL77lebVDusXOr+nNvUi6idvmNtkr9RS/79sKumw5qfdeo9n9a1f5vkknFm14yvvA67N9iZp5nNtT7vV4dvXw0UqjNzs0zqcdleE0789x1M53EvJFktvrnnxMmu9eozD4X00+0/P7yxyv4dfxe1nDvo9ph1xTMRaZj9jOk1cqvFmu7CgnUeE/0fhReUPm9hbI4t6otM8yPL+2cWSpOXrKDHPKep/3K22KSb3us1Y8Lb/XL/lModRrpRztZoKt66sku93uTamo0q2Lay5McYq0bl4vDzmu3nPb//ywrGKTy9ooqqSHaKZtU3mivhJ/m+cHLR/2NdvfPVfruqNoZLavk96ycmjLrXz4q+Ne0+tZjlr+wa4xRPTVceKmpG7F9sLE9l17bUtqzPXep7dPK+2uv1l+MfFvyncd5nqC1l+fdWY38RA1cHlXTcxZpd1YuftpuZdC6/tfOtj113OvW000rt9tGhsryW65VSx1pf3Bu9FF5M60QUXvt+x2270h7NIhPbhOfPv2o9n/ZNfK6rOJpbzdem7Lse31Ufn4d5js/Z17HW3mrr/vos07frvTvJbuGxfGn5RXje/6r/01sn8OOucHOEayI4+dMDPLvh31EMA57vnqcfxHr0T5bfPrErNcpLXOdDBb1e7aTYbjw9u1ahnZNa4PfbDQe9djIyOL52s3j3KTyHj9SfmGfPTcuFcNxJ2ks62+LXr7/G7MM8VFO/7RLeDGqHSn/ej+OYGqRe1bT5/ZiYvyFcXHPx2VZn53rj4sc+cyFAS4ZPoX7iviY8/g9/f6L8fmRdMNZy+dsYcnqQZl0q1d5qw/r/oyDzVLYjCPE2Odxp5p+WtXYTIv5yj82fxT8cmc7o3DKK3Pj0d3PLz+eEy3WgmYwhyn+pNlObZJbJTw235l5hTmbn5nm3h0WkZpfmN2DH+3Qj8XF9vPPrlNLP6FKMtFlM51cvlib5ZZzmluaqJgqmdlUiWQ73XYmnZuU3nMrdo0fg3Z2x9Isru3eKb17xO41L72/DjPpn26mi4iXNFE25beg7uWL3Vm+MGczt0yT9etWjbBZpY/NQuZja+v8Y9cru7Z6nczMW7Lvt81VMfVrmU39WpyzNfr9wHsrb2nSaio+ZVib5bA3zxYfZ/nknNXlTVn9q2znkf1rLqpsDM92mhO+vZH2rvJBe0vm+ru1iZf2Fus6WL2px1lY/2Rdf3zi25AXrz+IfDbVxNnOi1/ngvmXlFasHr+8GNZf9IJ2ZjtPE1Ym2wYzqCvwbS/8ftCO6bqc+W2JQl+Zi+Bev+aY+W/Fa8cuHoM+1fdRc7gS+xP8EV8wHi7auRzAeQZ4Z0W+WX1fuCIX4NDOrc65r/XA+4+sqWPtDxgt14nj+COHz//2+C2icfp8z+Eh33IYXOdvxBYLx/bIRnQCsT0bW3qES/tHsUXCsb308ds7iO7mURP7iLb2NwIqxh5j9eyxvcceG4Ls8abscvaYP4ZhYI+BPQb2GNhjYI+BPQb2GNhjYI+BPQb2GNhjYI+BPb4F9hifWMlrwh7zWSjMYaEOyOXb5KDE4/evOSh5MQDzxQDrDihF8XBemRiA+WKACbHVWQwgwrE98iJ9AsPwYWy3w/AyGmwtlAGinzJA/vlz5XzQ81/BBsoAKAOgDIAyAMoAKAOgDIAyAMoAKAOgDIAyAMoAKANXogyQEyv5q1AGiLgywH/E73opKfH46a8MEPFtAmdejX8H4TxgGLUTA4i4GHCrhLF0OPURes7xolwxwL4DoefS2P4joUdMCrDUSwEGUb5LwOJi3gItALQA0AJACwAtALQA0AJACwAtALQA0AJACwAtALSAW9ACrBNL+avQAiy+FoDvgG0Uj596epGvBFh8JYBCMA+Dqe2D4xafK3bugCsWD6Z2mwJM4diax94QlLgDDfbS6Gq7ncfiK3g2xPbatnyEvVmlzuMq/ykB/pBmcpEMMg/IPCDzgMwDMg/IPCDzgMwDMg/IPCDzgMwDMg/IPFci85gnVvJXIfOY4jLPrVJS4vFTzy/yZR6TL/MQCKZWMg+fLDb5ZDG9A5lHPJjHhQDNfjnAVk8WH2wK+PcvCLK5qLeBLQa2GNhiYIuBLQa2GNhiYIuBLQa2GNhiYIuBLQa2+BbYYvvEUv4q2GKbzxZH32Jxm5yUePzUE4x8ttgW3xRwq2yxdDC1fbTY5rPFFgRTs3c98fd42OJ7PG51w450OPXZBcB/INo+t8cjCZ1Vlx08YsJOaJpSYcdQvg2AclFPuUAGYQeEHRB2QNgBYQeEHRB2QNgBYQeEHRB2QNgBYQeEnSsRduiJpfxVCDuUL+yYd8BIicdP/19+oHxpx7oD+lg8nNrRx3ylh/KVHhtie13ksaMBeUyVk8cOF/MOkMdAHgN5DOQxkMdAHgN5DOQxkMdAHgN5DOQxkMdAHt8CeeycWMpfBXns8Mlj6w52BYjHTz29yKeOHT51bEMwtdriweeKHQ5XfPA6+Vt9i4x4OLVTAvibBBzOJoGDB8khurprAWGHVK8G2F/84eBvUgN2/XAM+dvzoAiAIgCKACgCoAiAIgCKACgCoAiAIgCKACgCoAiAInDVikCECtBUE+Awj0d+qZKrCvB/Iu5KuSnJGKonGzkizxGumPtOkpvcI/C1gOr5+qeDgO5LPc/5QjG4oDFt3eRj5JLR1P8F8yHjrx99/I9fMb/rh5PQTwJ9DPQx0MdAHwN9DPQx0MdAHwN9DPQx0MdAHwN9DPTxbdDHyRML+iuhj5Pirzm4XfpYPIbq2cZz9HFSnD6+yQfLvxZQPfcJHAT0KH2cvHX6WDyaV0Ifx9XTx/s/UPqPX0Wy64aTyI8DewzsMbDHwB4DewzsMbDHwB4DewzsMbDHwB4Dewzs8W2wx/ET63lN2ONzZGOcTzYat74xXjKGiumpr7CP8XPsY/zW2Ufx8GpIN4bPFyunGw1X4GUH3zSuHYP5rh+OYX17HvhG4BuBbwS+EfhG4BuBbwS+EfhG4BuBb/w2vvEUzxhhxIrxeTbVXWQ7Txmvk8j4x412IpdPdddMWds0Sqv41EuaRsD8FNCc9XKfCUKlZfjZP+czaUn/uOsfr5movud/XvnnvODapn+Mg3Pt4LifWbEoL0udfHHCPnftdZ2//OuW/vfyO/cL6uk2VzlWR3jdxEuixdoun3WLb+5pBJ+De3QnAQMZ3HPOjludtT3+Z29tT8pn4NCaJSuYy7Bdk0271t/rrm1KPbJ2ljo+al7aHl3bPn3LrcrDXLE583qlwGeNdpQJyyX1YMIii1RNmTAOTxLdw3vm7Z83yZNIBlBXnkSHXb37PMmxXb1/myfh7OrdngeeBHgS4EmAJwGeBHgS4EmAJwGeBHgS4EmAJwGe5O/yJJrvNz3HkyQ5PEnyLngS6b2J2vEkGmxfM9RuX9t1w0mow/Y1oEmAJgGaBGgSoEmAJgGaBGgSoEmAJgGaBGiSf0CTaL6x6hxNEufQJPG7oEmuZlcVOxwPh9OdS9PMvy1vWPeD/fh/</diagram></mxfile>",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_1",
+      "gridPos": {
+        "h": 23,
+        "w": 22,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "newFlag": false,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "SITE-C-G0-0-0-1-in",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "SITE-C-G0-0-0-1-in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-HOST-C:eth1:clab-hawkv6-SITE-C:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-HOST-C:eth1:clab-hawkv6-SITE-C:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-C-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "SITE-C-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-C:Gi0-0-0-1:clab-hawkv6-HOST-C:eth1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-C:Gi0-0-0-1:clab-hawkv6-HOST-C:eth1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-B-G0-0-0-1-in",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "SITE-B-G0-0-0-1-in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-HOST-B:eth1:clab-hawkv6-SITE-B:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-HOST-B:eth1:clab-hawkv6-SITE-B:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-B-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 4,
+            "overlayIcon": false,
+            "pattern": "SITE-B-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-B:Gi0-0-0-1:clab-hawkv6-HOST-B:eth1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-B:Gi0-0-0-1:clab-hawkv6-HOST-B:eth1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-C-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 5,
+            "overlayIcon": false,
+            "pattern": "SITE-C-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-C:Gi0-0-0-0:clab-hawkv6-XR-8:Gi0-0-0-3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-C:Gi0-0-0-0:clab-hawkv6-XR-8:Gi0-0-0-3",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-8-G0-0-0-3-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 6,
+            "overlayIcon": false,
+            "pattern": "XR-8-G0-0-0-3-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-8:Gi0-0-0-3:clab-hawkv6-SITE-C:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-8:Gi0-0-0-3:clab-hawkv6-SITE-C:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-B-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 7,
+            "overlayIcon": false,
+            "pattern": "SITE-B-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-B:Gi0-0-0-0:clab-hawkv6-XR-8:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-B:Gi0-0-0-0:clab-hawkv6-XR-8:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-8-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 8,
+            "overlayIcon": false,
+            "pattern": "XR-8-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-8:Gi0-0-0-2:clab-hawkv6-SITE-B:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-8:Gi0-0-0-2:clab-hawkv6-SITE-B:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-C-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 9,
+            "overlayIcon": false,
+            "pattern": "SITE-C-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-C:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-4",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-C:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-4",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-7-G0-0-0-4-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 10,
+            "overlayIcon": false,
+            "pattern": "XR-7-G0-0-0-4-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-7:Gi0-0-0-4:clab-hawkv6-SITE-C:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-7:Gi0-0-0-4:clab-hawkv6-SITE-C:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-8-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 11,
+            "overlayIcon": false,
+            "pattern": "XR-8-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-8:Gi0-0-0-1:clab-hawkv6-XR-7:Gi0-0-0-3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-8:Gi0-0-0-1:clab-hawkv6-XR-7:Gi0-0-0-3",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-7-G0-0-0-3-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 12,
+            "overlayIcon": false,
+            "pattern": "XR-7-G0-0-0-3-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-7:Gi0-0-0-3:clab-hawkv6-XR-8:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-7:Gi0-0-0-3:clab-hawkv6-XR-8:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-8-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 13,
+            "overlayIcon": false,
+            "pattern": "XR-8-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-8:Gi0-0-0-0:clab-hawkv6-XR-6:Gi0-0-0-3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-8:Gi0-0-0-0:clab-hawkv6-XR-6:Gi0-0-0-3",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-6-G0-0-0-3-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 14,
+            "overlayIcon": false,
+            "pattern": "XR-6-G0-0-0-3-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-6:Gi0-0-0-3:clab-hawkv6-XR-8:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-6:Gi0-0-0-3:clab-hawkv6-XR-8:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-B-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 15,
+            "overlayIcon": false,
+            "pattern": "SITE-B-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-B:Gi0-0-0-2:clab-hawkv6-XR-6:Gi0-0-0-4",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-B:Gi0-0-0-2:clab-hawkv6-XR-6:Gi0-0-0-4",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-6-G0-0-0-4-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 16,
+            "overlayIcon": false,
+            "pattern": "XR-6-G0-0-0-4-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-6:Gi0-0-0-4:clab-hawkv6-SITE-B:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-6:Gi0-0-0-4:clab-hawkv6-SITE-B:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-6-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 17,
+            "overlayIcon": false,
+            "pattern": "XR-6-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-6:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-6:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-7-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 18,
+            "overlayIcon": false,
+            "pattern": "XR-7-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-7:Gi0-0-0-2:clab-hawkv6-XR-6:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-7:Gi0-0-0-2:clab-hawkv6-XR-6:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-7-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 19,
+            "overlayIcon": false,
+            "pattern": "XR-7-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-7:Gi0-0-0-1:clab-hawkv6-XR-5:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-7:Gi0-0-0-1:clab-hawkv6-XR-5:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-5-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 20,
+            "overlayIcon": false,
+            "pattern": "XR-5-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-5:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-5:Gi0-0-0-2:clab-hawkv6-XR-7:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-6-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 21,
+            "overlayIcon": false,
+            "pattern": "XR-6-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-6:Gi0-0-0-1:clab-hawkv6-XR-5:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-6:Gi0-0-0-1:clab-hawkv6-XR-5:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-5-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 22,
+            "overlayIcon": false,
+            "pattern": "XR-5-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-5:Gi0-0-0-1:clab-hawkv6-XR-6:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-5:Gi0-0-0-1:clab-hawkv6-XR-6:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-5-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 23,
+            "overlayIcon": false,
+            "pattern": "XR-5-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-5:Gi0-0-0-0:clab-hawkv6-XR-4:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-5:Gi0-0-0-0:clab-hawkv6-XR-4:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-4-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 24,
+            "overlayIcon": false,
+            "pattern": "XR-4-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-4:Gi0-0-0-2:clab-hawkv6-XR-5:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-4:Gi0-0-0-2:clab-hawkv6-XR-5:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-7-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 25,
+            "overlayIcon": false,
+            "pattern": "XR-7-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-7:Gi0-0-0-0:clab-hawkv6-XR-3:Gi0-0-0-3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-7:Gi0-0-0-0:clab-hawkv6-XR-3:Gi0-0-0-3",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-3-G0-0-0-3-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 26,
+            "overlayIcon": false,
+            "pattern": "XR-3-G0-0-0-3-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-3:Gi0-0-0-3:clab-hawkv6-XR-7:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-3:Gi0-0-0-3:clab-hawkv6-XR-7:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-4-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 27,
+            "overlayIcon": false,
+            "pattern": "XR-4-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-4:Gi0-0-0-1:clab-hawkv6-XR-3:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-4:Gi0-0-0-1:clab-hawkv6-XR-3:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-3-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 28,
+            "overlayIcon": false,
+            "pattern": "XR-3-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-3:Gi0-0-0-2:clab-hawkv6-XR-4:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-3:Gi0-0-0-2:clab-hawkv6-XR-4:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-4-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 29,
+            "overlayIcon": false,
+            "pattern": "XR-4-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-4:Gi0-0-0-0:clab-hawkv6-XR-2:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-4:Gi0-0-0-0:clab-hawkv6-XR-2:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-2-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 30,
+            "overlayIcon": false,
+            "pattern": "XR-2-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-2:Gi0-0-0-2:clab-hawkv6-XR-4:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-2:Gi0-0-0-2:clab-hawkv6-XR-4:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-6-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 31,
+            "overlayIcon": false,
+            "pattern": "XR-6-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-6:Gi0-0-0-0:clab-hawkv6-XR-2:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-6:Gi0-0-0-0:clab-hawkv6-XR-2:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-2-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 32,
+            "overlayIcon": false,
+            "pattern": "XR-2-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-2:Gi0-0-0-1:clab-hawkv6-XR-6:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-2:Gi0-0-0-1:clab-hawkv6-XR-6:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-3-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 33,
+            "overlayIcon": false,
+            "pattern": "XR-3-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-3:Gi0-0-0-1:clab-hawkv6-XR-2:Gi0-0-0-3",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-3:Gi0-0-0-1:clab-hawkv6-XR-2:Gi0-0-0-3",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-2-G0-0-0-3-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 34,
+            "overlayIcon": false,
+            "pattern": "XR-2-G0-0-0-3-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-2:Gi0-0-0-3:clab-hawkv6-XR-3:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-2:Gi0-0-0-3:clab-hawkv6-XR-3:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-3-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 35,
+            "overlayIcon": false,
+            "pattern": "XR-3-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-3:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-2",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-3:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-2",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-1-G0-0-0-2-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 36,
+            "overlayIcon": false,
+            "pattern": "XR-1-G0-0-0-2-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-1:Gi0-0-0-2:clab-hawkv6-XR-3:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-1:Gi0-0-0-2:clab-hawkv6-XR-3:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-2-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 37,
+            "overlayIcon": false,
+            "pattern": "XR-2-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-2:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-2:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-1-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 38,
+            "overlayIcon": false,
+            "pattern": "XR-1-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-1:Gi0-0-0-1:clab-hawkv6-XR-2:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-1:Gi0-0-0-1:clab-hawkv6-XR-2:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "XR-1-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 39,
+            "overlayIcon": false,
+            "pattern": "XR-1-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-XR-1:Gi0-0-0-0:clab-hawkv6-SITE-A:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-XR-1:Gi0-0-0-0:clab-hawkv6-SITE-A:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-A-G0-0-0-1-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 40,
+            "overlayIcon": false,
+            "pattern": "SITE-A-G0-0-0-1-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-A:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-0",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-A:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-0",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-A-G0-0-0-0-in",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 41,
+            "overlayIcon": false,
+            "pattern": "SITE-A-G0-0-0-0-in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-HOST-A:eth1:clab-hawkv6-SITE-A:Gi0-0-0-1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-HOST-A:eth1:clab-hawkv6-SITE-A:Gi0-0-0-1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "SITE-G0-0-0-0-out",
+            "colors": [
+              "#73BF69",
+              "#FF9830",
+              "#F2495C"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 42,
+            "overlayIcon": false,
+            "pattern": "SITE-A-G0-0-0-0-out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "clab-hawkv6-SITE-A:Gi0-0-0-1:clab-hawkv6-HOST-A:eth1",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": false,
+            "stringThresholds": [
+              "/.*/",
+              "/.*/"
+            ],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "link_id:clab-hawkv6-SITE-A:Gi0-0-0-1:clab-hawkv6-HOST-A:eth1",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": false,
+            "thresholds": [
+              500000,
+              1000000
+            ],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "binBps",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "alias": "SITE-A-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-A-G0-0-0-0-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-A-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "L",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "M",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "N",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "O",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "P",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "Q",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "R",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "S",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "T",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "U",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "V",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "W",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "X",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "Y",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "Z",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-4-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AA",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/4"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AB",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AC",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AD",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AE",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AF",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-4-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AG",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/4"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AH",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AI",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AJ",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AK",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AL",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AM",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-1-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AN",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-1-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AO",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "AP",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        }
+      ],
+      "title": "Topology with Bandwidth",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "0.9.0"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30s",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Flowchart Bandwidth",
+  "uid": "e1268e31-425f-4047-a5d4-6a6536ff8184",
+  "version": 28,
+  "weekStart": ""
+}
