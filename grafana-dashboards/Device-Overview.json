@@ -1,0 +1,185 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "bucketOffset": 0,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "alias": "[[tag_source]] [[tag_interface_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "interface_name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "isis",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "interface_status_and_data/enabled/packet_loss_percentage"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=~",
+              "value": "/^$Devices$/"
+            }
+          ]
+        }
+      ],
+      "title": "Packet Loss [[Devices]]",
+      "type": "histogram"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "SITE-A",
+          "value": "SITE-A"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+        },
+        "definition": "SHOW TAG VALUES WITH KEY=\"source\"",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Devices",
+        "options": [],
+        "query": "SHOW TAG VALUES WITH KEY=\"source\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Device Overview",
+  "uid": "f3fd81d2-fe84-4b05-96d6-56fb5cd3d9fb",
+  "version": 2,
+  "weekStart": ""
+}

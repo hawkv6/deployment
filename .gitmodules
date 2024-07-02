@@ -1,0 +1,3 @@
+[submodule "jagw-helm"]
+	path = jagw-helm
+	url = git@github.com:jalapeno-api-gateway/jagw-helm.git

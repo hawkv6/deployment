@@ -18,14 +18,298 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 19,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "a11489b1-5d88-49c6-a9c1-247c7d4f6500"
+        "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 500000
+              },
+              {
+                "color": "red",
+                "value": 1000000
+              }
+            ]
+          },
+          "unit": "byte/s",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "minVizHeight": 337,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "alias": "[[tag_source]] [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT non_negative_derivative(last(\"in_octets\"), 1s) FROM \"utilization\" WHERE (\"source\" =~ /^$Devices$/) AND $timeFilter GROUP BY time($__interval), \"name\", \"source\" fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "Null0"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "MgmtEth0/RP0/CPU0/0"
+            }
+          ]
+        }
+      ],
+      "title": "Outgoing Traffic",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*\\s+)?GigabitEthernet(\\d+/\\d+/\\d+/\\d+)",
+            "renamePattern": "$1 G$2"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 500000
+              },
+              {
+                "color": "red",
+                "value": 1000000
+              }
+            ]
+          },
+          "unit": "byte/s",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "minVizHeight": 337,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "alias": "[[tag_source]] [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "utilization",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT non_negative_derivative(last(\"in_octets\"), 1s) FROM \"utilization\" WHERE (\"source\" =~ /^$Devices$/) AND $timeFilter GROUP BY time($__interval), \"name\", \"source\" fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "Null0"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "MgmtEth0/RP0/CPU0/0"
+            }
+          ]
+        }
+      ],
+      "title": "Incoming Traffic",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*\\s+)?GigabitEthernet(\\d+/\\d+/\\d+/\\d+)",
+            "renamePattern": "$1 G$2"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "cae8dea5-a8cb-4316-9071-9eff448d4eef"
       },
       "flowchartsData": {
         "flowcharts": [
@@ -52,10 +336,10 @@
       "format": "short",
       "graphId": "flowchart_1",
       "gridPos": {
-        "h": 23,
-        "w": 22,
+        "h": 7,
+        "w": 24,
         "x": 0,
-        "y": 0
+        "y": 12
       },
       "id": 1,
       "newFlag": false,
@@ -3096,10 +3380,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3168,10 +3450,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3240,10 +3520,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3312,10 +3590,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3384,10 +3660,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3456,10 +3730,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3528,10 +3800,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3600,10 +3870,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3672,10 +3940,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3744,10 +4010,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3816,10 +4080,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3888,10 +4150,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -3960,10 +4220,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4032,10 +4290,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4104,10 +4360,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4176,10 +4430,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4248,10 +4500,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4320,10 +4570,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4392,10 +4640,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4464,10 +4710,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4536,10 +4780,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4608,10 +4850,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4680,10 +4920,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4752,10 +4990,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4824,10 +5060,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4896,10 +5130,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -4968,10 +5200,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5040,10 +5270,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5112,10 +5340,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5184,10 +5410,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5256,10 +5480,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5328,10 +5550,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5400,10 +5620,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5472,10 +5690,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5544,10 +5760,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5616,10 +5830,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5688,10 +5900,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5760,10 +5970,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5832,10 +6040,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5904,10 +6110,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -5976,10 +6180,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -6048,10 +6250,8 @@
                 "type": "last"
               },
               {
-                "params": [
-                  "1s"
-                ],
-                "type": "non_negative_derivative"
+                "params": [],
+                "type": "difference"
               }
             ]
           ],
@@ -6070,7 +6270,7 @@
           ]
         }
       ],
-      "title": "Topology with Bandwidth",
+      "title": "Live Bandwidth",
       "type": "agenty-flowcharting-panel",
       "valueName": "current",
       "version": "0.9.0"
@@ -6090,6 +6290,6 @@
   "timezone": "",
   "title": "Flowchart Bandwidth",
   "uid": "e1268e31-425f-4047-a5d4-6a6536ff8184",
-  "version": 28,
+  "version": 6,
   "weekStart": ""
 }
