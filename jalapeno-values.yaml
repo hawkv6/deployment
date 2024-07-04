@@ -27,13 +27,6 @@ collectors:
     image: telegraf:1.29-alpine
     imagePullSecret: regcred
     port: 32400
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
     service:
       loadBalancerIP: 10.8.39.66
       annotations:
@@ -44,36 +37,15 @@ processors:
     name: lslinknode-edge
     replicas: 1
     image: ghcr.io/jalapeno-api-gateway/jalapeno/lslinknode-edge:v1.0.1
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
   telegrafEgress:
     name: telegraf-egress
     replicas: 1
     image: telegraf:1.29-alpine
     imagePullSecret: regcred
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
   topology:
     name: topology
     replicas: 1
     image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.1
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
 
 arangodb:
   image:
@@ -83,8 +55,6 @@ arangodb:
   arangodb:
     service:
       type: ClusterIP
-    #   nodePorts:
-    #     http: 30852
   ingress:
     enabled: true
     hostname: arango-hawkv6.stud.network.garden # change to your domain
@@ -105,8 +75,7 @@ influxdb:
   fullnameOverride: influxdb
   image:
     repository: bitnami/influxdb
-    #tag: 2.0.7-debian-10-r34
-    tag: 1.8.5 # newest release for oldest influxdb version
+    tag: 1.8.5 # latest release for oldest influxdb version
   auth:
     admin:
       username: admin
@@ -121,20 +90,11 @@ influxdb:
       - name: INFLUXDB_USER_PASSWORD
         value: "jalapeno"
     replicaCount: 1
-    # service:
-    #   type: NodePort
-    #   nodePorts:
-    #     http: 30308
     service:
       type: LoadBalancer
       loadBalancerIP: 10.8.39.67
       annotations:
         metallb.universe.tf/address-pool: load-balanced
-    # service:
-    #   type: ClusterIP
-    #   ports:
-    #     http: 8086
-    #     rpc: 8088
 
 # https://github.com/bitnami/charts/tree/master/bitnami/grafana
 grafana:
@@ -146,9 +106,6 @@ grafana:
     user: root
     password: jalapeno
   replicaCount: 1
-  # service:
-  #   type: NodePort
-  #   nodePort: 30300
   service:
     type: ClusterIP
     ports:
@@ -179,11 +136,3 @@ kafka:
     create: true
   rbac:
     create: true
-  # service:
-  #   type: NodePort
-  # externalAccess:
-  #   enabled: true
-  #   service:
-  #     type: NodePort
-  #     nodePorts:
-  #       - 30092

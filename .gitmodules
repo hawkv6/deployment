@@ -1,3 +1,6 @@
 [submodule "jagw-helm"]
 	path = jagw-helm
 	url = git@github.com:jalapeno-api-gateway/jagw-helm.git
+[submodule "jalapeno-helm"]
+	path = jalapeno-helm
+	url = git@github.com:jalapeno-api-gateway/jalapeno-helm.git

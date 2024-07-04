@@ -1,0 +1,24 @@
+global: 
+  enabled: false
+  name: consul
+server:
+  enabled: true
+  replicas: 1
+  exposeGossipAndRPCPorts: true
+  ports:
+    serflan: 
+      port: 9301
+  nodeSelector: |
+    hawkv6-consul-server: "true"
+client:
+  exposeGossipPorts: true
+ui:
+  enabled: true
+  ingress:
+    enabled: true
+    hosts:
+      - host: consul-hawkv6.stud.network.garden
+dns: 
+  enabled: false
+connectInject:
+  enabled: false

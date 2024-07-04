@@ -1,9 +1,9 @@
 imagePullSecrets: []
 
 release:
-  cacheServiceTag: v1.3.6
-  requestServiceTag: v1.3.6
-  subscriptionServiceTag: v1.3.6
+  cacheServiceTag: v1.4.0
+  requestServiceTag: v1.4.0
+  subscriptionServiceTag: v1.4.0
 
 config:
   arangoDB: jalapeno-arangodb.hawkv6-jalapeno.svc.cluster.local:8086 # change to your domain
@@ -85,6 +85,3 @@ proxy:
     service:
       type: LoadBalancer
       loadBalancerIP: 10.8.39.69 # Omit for automatic IP assignment
-      # nodePort: Optional (only if NodePort is used)
-      # subscriptionServiceNodePort: 31146
-      # requestServiceNodePort: 31147
