@@ -1,14 +1,14 @@
 ### General
 #### Jalapeno Helm
 The `jalapeno-helm-values.yaml` is used with https://github.com/jalapeno-api-gateway/jalapeno-helm to deploy Jalapeno.
-It is added via submodule.
+It is added via a submodule.
 
 #### JAGW Helm
-The `jagw-helm-values.yaml` is used with https://github.com/jalapeno-api-gateway/jagw-helm/tree/main to deploy the Jalapeno API Gateway.
-It is added via submodule.
+The `jagw-helm-values. yaml` is used with https://github.com/jalapeno-api-gateway/jagw-helm/tree/main to deploy the Jalapeno API Gateway.
+It is added via a submodule.
 
 ### Deployment
-Before you can start clone this repository with `git clone` and update the helm submodules (jagw-helm and jalapeno-helm) with `git submodule init`.
+Before you can start to clone this repository with `git clone` and update the helm submodules (jagw-helm and jalapeno-helm) with `git submodule init`.
 
 ### Deploy Jalapeno
 The hawkv6 Jalapeno will be installed in the `hawkv6-jalapeno` namespace.
@@ -37,7 +37,7 @@ To deploy the application, follow these steps.
 	```
 	cp jagw-values.yaml jagw-helm/jagw/values.yaml
 	``` 
-2. Install the Jalapeno API Gatewat with the following command in the `hawkv6-jagw` namespace:
+2. Install the Jalapeno API Gateway with the following command in the `hawkv6-jagw` namespace:
 	```
     cd jagw-helm && helm install jagw jagw -n hawkv6-jagw --create-namespace
 	``` 
@@ -58,11 +58,11 @@ To deploy the application, follow these steps.
 	NAME                CHART VERSION   APP VERSION DESCRIPTION
 	hashicorp/consul    1.0.1           1.14.1      Official HashiCorp Consul Chart
 	```
-4. If the external services can not reach your internal pod you have to work with hostPorts. Thus, it makes sense to let the server run only on one worker node. To do so we label one worker with  `hawkv6-consul-server=true`:
+4. If the external services can not reach your internal pod, you must work with hostPorts. So, letting the server run only on one worker node makes sense to me. To do so, we label one worker with  `hawkv6-consul-server=true`:
 	```
 		kubectl label nodes dev-w-0 hawkv6-consul-server=true
 	```
-5. Because Consul does only accept non K8S client agents with Host Ports, we have to label the namespace too. To do so create the namespace and label it:
+5. Because Consul only accepts non-K8S client agents with Host Ports, we must also label the namespace. To do so, create the namespace and label it:
 	```
 	kubectl create namespace hawkv6-clab
 	kubectl label ns hawkv6-clab --overwrite \
