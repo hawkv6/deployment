@@ -41,7 +41,7 @@ To deploy the application, follow these steps.
 	```
 	cp jagw-values.yaml jagw-helm/jagw/values.yaml
 	``` 
-2. Install the Jalapeno API Gatewat with the following command in the `hawkv6-jagw` namespace:
+2. Install the Jalapeno API Gateway with the following command in the `hawkv6-jagw` namespace:
 	```
     cd jagw-helm && helm install jagw jagw -n hawkv6-jagw --create-namespace
 	``` 
