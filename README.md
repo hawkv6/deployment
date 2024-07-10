@@ -1,4 +1,9 @@
 ### General
+This repository is used to install the following elements on a Kubernetes cluster needed for the hawkv6 project.
+- [Jalapeno](https://github.com/cisco-open/jalapeno)
+- [Jalapeno API Gateway] https://github.com/jalapeno-api-gateway also called JAGW
+- [Consul](https://github.com/hashicorp/consul)
+
 #### Jalapeno Helm
 The `jalapeno-helm-values.yaml` is used with https://github.com/jalapeno-api-gateway/jalapeno-helm to deploy Jalapeno.
 It is added via submodule.
