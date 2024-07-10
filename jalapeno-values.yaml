@@ -17,25 +17,18 @@ collectors:
         memory: 1024Mi
         cpu: 1
     service:
-      loadBalancerIP: 172.16.19.75
+      loadBalancerIP: 10.8.39.65
       annotations:
         metallb.universe.tf/address-pool: load-balanced
 
   telegrafIngress:
     name: telegraf-ingress
     replicas: 1
-    image: telegraf:1.28-alpine
+    image: telegraf:1.29-alpine
     imagePullSecret: regcred
     port: 32400
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
     service:
-      loadBalancerIP: 172.16.19.74
+      loadBalancerIP: 10.8.39.66
       annotations:
         metallb.universe.tf/address-pool: load-balanced
 
@@ -43,51 +36,28 @@ processors:
   lslinknodeEdge:
     name: lslinknode-edge
     replicas: 1
-    image: docker.io/iejalapeno/lslinknode-edge:latest
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/lslinknode-edge:v1.0.1
   telegrafEgress:
     name: telegraf-egress
     replicas: 1
-    image: telegraf:1.28-alpine
+    image: telegraf:1.29-alpine
     imagePullSecret: regcred
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
   topology:
     name: topology
     replicas: 1
-    image: docker.io/iejalapeno/topology:latest
-    # resources:
-    #   requests:
-    #     memory:
-    #     cpu:
-    #   limits:
-    #     memory:
-    #     cpu:
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.1
 
 arangodb:
   image:
     registry: docker.io
     repository: arangodb
-    tag: 3.6.12
+    tag: 3.11.7
   arangodb:
     service:
       type: ClusterIP
-    #   nodePorts:
-    #     http: 30852
   ingress:
     enabled: true
-    hostname: arango-hawkv6.dev.network.garden # change to your domain
+    hostname: arango-hawkv6.stud.network.garden # change to your domain
   auth:
     admin:
       username: root
@@ -105,8 +75,7 @@ influxdb:
   fullnameOverride: influxdb
   image:
     repository: bitnami/influxdb
-    #tag: 2.0.7-debian-10-r34
-    tag: 1.7.8-r24 # newest release for oldest influxdb version
+    tag: 1.8.5 # latest release for oldest influxdb version
   auth:
     admin:
       username: admin
@@ -114,12 +83,6 @@ influxdb:
   influxdb:
     extraEnvVars:
       # Don't change the ordering!
-      # - name: INFLUXDB_DB
-      #   value: "mdt_db"
-      # - name: INFLUXDB_USER
-      #   value: jalapeno
-      # - name: INFLUXDB_USER_PASSWORD
-      #   value: jalapeno
       - name: INFLUXDB_DB
         value: "mdt_db"
       - name: INFLUXDB_USER
@@ -127,39 +90,32 @@ influxdb:
       - name: INFLUXDB_USER_PASSWORD
         value: "jalapeno"
     replicaCount: 1
-    # service:
-    #   type: NodePort
-    #   nodePorts:
-    #     http: 30308
     service:
-      type: ClusterIP
-      ports:
-        http: 8086
-        rpc: 8088
+      type: LoadBalancer
+      loadBalancerIP: 10.8.39.67
+      annotations:
+        metallb.universe.tf/address-pool: load-balanced
 
 # https://github.com/bitnami/charts/tree/master/bitnami/grafana
 grafana:
   fullnameOverride: grafana
   image:
     repository: bitnami/grafana
-    tag: 8.0.6-debian-10-r0
+    tag: 10.3.1-debian-11-r2
   admin:
     user: root
     password: jalapeno
   replicaCount: 1
-  # service:
-  #   type: NodePort
-  #   nodePort: 30300
   service:
     type: ClusterIP
     ports:
       grafana: 3000
   ingress:
     enabled: true
-    hostname: grafana-hawkv6.dev.network.garden # change to your domain
+    hostname: grafana-hawkv6.stud.network.garden # change to your domain
     tls:
       - hosts:
-        - grafana-hawkv6.dev.network.garden # change to your domain
+        - grafana-hawkv6.stud.network.garden # change to your domain
         secretName: ingress-certificate-secret-prod
 
 # https://github.com/bitnami/charts/tree/master/bitnami/kafka
@@ -167,24 +123,16 @@ kafka:
   fullnameOverride: kafka
   image:
     repository: bitnami/kafka
-    tag: 2.8.0-debian-10-r57
+    tag: 3.6.1-debian-11-r6
   replicacount: 1
   externalAccess:
     enabled: true
     service:
       loadBalancerIPs:
-      - 172.16.19.77
+      - 10.8.39.68
     autoDiscovery:
       enabled: true
   serviceAccount:
     create: true
   rbac:
     create: true
-  # service:
-  #   type: NodePort
-  # externalAccess:
-  #   enabled: true
-  #   service:
-  #     type: NodePort
-  #     nodePorts:
-  #       - 30092
