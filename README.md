@@ -38,6 +38,10 @@ Follow these steps to install Jalapeno in the `hawkv6-jalapeno` namespace:
 	```bash
 	cp collector-telegraf-ingress-cm.yaml jalapeno-helm/jalapeno-helm/templates/collectors/telegraf-ingress/collector-telegraf-ingress-cm.yaml
 	```
+The following Kafka topics are used for data transfer:
+- `hawkv6.telemetry.unprocessed`: Contains unprocessed performance measurement telemetry data, utilized by the `clab-telemetry-linker`.
+- `hawkv6.openconfig`: Holds OpenConfig interface status and related IPv6 addresses, used by the `generic-processor`.
+- `jalapeno.telemetry`: Handles all other telemetry data.
 
 3. **Configure Telegraf Egress**
 - This action ensures data is forwarded to InfluxDB.
@@ -46,6 +50,12 @@ Follow these steps to install Jalapeno in the `hawkv6-jalapeno` namespace:
 	```bash
 	cp processors-telegraf-egress-cm.yaml jalapeno-helm/jalapeno-helm/templates/processors/telegraf-egress/processors-telegraf-egress-cm.yaml
 	```
+
+These Kafka topics are used for data transfer to InfluxDB:
+
+- `hawkv6.telemetry.processed`: Contains the processed performance measurement telemetry data. The `clab-telemetry-linker` writes to this topic.
+- `jalapeno.telemetry`: Handles all other telemetry data.
+- `hawkv6.telemetry.normalized`: Contains normalized telemetry data. The `generic-processor` writes to this topic.
 
 
 4. **Deploy Jalapeno**
