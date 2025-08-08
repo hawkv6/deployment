@@ -123,8 +123,8 @@ Follow these steps to install the Consul instance in the `hawkv6-consul` namespa
    - Since Consul only accepts non-K8S client agents with Host Ports, label the namespace accordingly:
 
 	```bash
-	kubectl create namespace hawkv6-clab
-	kubectl label ns hawkv6-clab --overwrite \
+	kubectl create namespace hawkv6-consul
+	kubectl label ns hawkv6-consul --overwrite \
     	pod-security.kubernetes.io/enforce=privileged \
     	pod-security.kubernetes.io/warn=privileged
 	``` 
