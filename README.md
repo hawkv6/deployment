@@ -16,6 +16,7 @@ Before proceeding, ensure that you've cloned this repository and initialized the
 
 ```bash
 git clone https://github.com/hawkv6/deployment.git
+cd deployment
 git submodule init
 git submodule update
 ```
