@@ -6,7 +6,7 @@ release:
   subscriptionServiceTag: v1.4.0
 
 config:
-  arangoDB: jalapeno-arangodb.hawkv6-jalapeno.svc.cluster.local:8086 # change to your domain
+  arangoDB: arangodb.hawkv6-jalapeno.svc.cluster.local:8529 # change to your domain
   arangoDBUser: root
   arangoDBPassword: jalapeno
   arangoDBName: jalapeno
@@ -14,10 +14,10 @@ config:
   sentinelPassword: a-very-complex-password-here
   sentinelAddress: jagw-redis:26379
   sentinelMaster: mymaster
-  kafkaAddress: kafka.hawkv6-jalapeno.svc.cluster.local:9092 # change to your domain
+  kafkaAddress: kafka-headless.hawkv6-jalapeno.svc.cluster.local:9092 # change to your domain
   influxDBUrl: influxdb.hawkv6-jalapeno.svc.cluster.local:8086 # change to your domain
   influxDBUser: admin #root # needs to match influxUser in Jalapeno Deployment
-  influxDBPassword: gsplabgsplab # jalapeno # needs to match influxPassword in Jalapeno deployment
+  influxDBPassword: jalapeno # jalapeno # needs to match influxPassword in Jalapeno deployment
   influxDB: mdt_db
 
 subscriptionService:
@@ -63,11 +63,15 @@ redis:
 
   image:
     registry: docker.io
-    repository: bitnami/redis
+    repository: bitnamilegacy/redis
     tag: 7.0.4-debian-11-r17
 
   sentinel:
     enabled: true
+    image:
+      registry: docker.io
+      repository: bitnamilegacy/redis-sentinel
+      tag: 7.0.4-debian-11-r17
 
 proxy:
   name: envoy-proxy
@@ -84,4 +88,4 @@ proxy:
     requestServicePort: 9903
     service:
       type: LoadBalancer
-      loadBalancerIP: 10.8.39.69 # Omit for automatic IP assignment
+      loadBalancerIP: 10.5.0.136 # Omit for automatic IP assignment

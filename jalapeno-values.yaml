@@ -3,7 +3,6 @@ ingressSecretName: ingress-certificate-secret-prod
 
 collectors:
   gobmp:
-    name: gobmp
     replicas: 1
     image: docker.io/sbezverk/gobmp:latest
     ports:
@@ -17,122 +16,148 @@ collectors:
         memory: 1024Mi
         cpu: 1
     service:
-      loadBalancerIP: 10.8.39.65
-      annotations:
-        metallb.universe.tf/address-pool: load-balanced
+      loadBalancerIP: 10.5.0.129
 
   telegrafIngress:
     name: telegraf-ingress
     replicas: 1
-    image: telegraf:1.29-alpine
+    image: telegraf:1.36-alpine
     imagePullSecret: regcred
     port: 32400
+    # resources:
+    #   requests:
+    #     memory:
+    #     cpu:
+    #   limits:
+    #     memory:
+    #     cpu:
     service:
-      loadBalancerIP: 10.8.39.66
-      annotations:
-        metallb.universe.tf/address-pool: load-balanced
+      loadBalancerIP: 10.5.0.130
 
 processors:
   lslinknodeEdge:
-    name: lslinknode-edge
+    name: linkstate-edge
     replicas: 1
-    image: ghcr.io/jalapeno-api-gateway/jalapeno/lslinknode-edge:v1.0.1
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/linkstate-edge:v1.0.2
+    # image: docker.io/iejalapeno/linkstate-edge:latest
+    # resources:
+    #   requests:
+    #     memory:
+    #     cpu:
+    #   limits:
+    #     memory:
+    #     cpu:
   telegrafEgress:
     name: telegraf-egress
     replicas: 1
-    image: telegraf:1.29-alpine
+    image: telegraf:1.36-alpine
     imagePullSecret: regcred
+    # resources:
+    #   requests:
+    #     memory:
+    #     cpu:
+    #   limits:
+    #     memory:
+    #     cpu:
   topology:
     name: topology
     replicas: 1
-    image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.1
+    image: ghcr.io/jalapeno-api-gateway/jalapeno/topology:v1.0.2
+    # image: docker.io/iejalapeno/topology:latest
+    # image: docker.io/iejalapeno/topology:test20250829
+    # resources:
+    #   requests:
+    #     memory:
+    #     cpu:
+    #   limits:
+    #     memory:
+    #     cpu:
 
-arangodb:
-  image:
-    registry: docker.io
-    repository: arangodb
-    tag: 3.11.7
+storage:
   arangodb:
-    service:
-      type: ClusterIP
-  ingress:
-    enabled: true
-    hostname: arango-hawkv6.stud.network.garden # change to your domain
-  auth:
-    admin:
-      username: root
-      password: jalapeno
-      
-  databaseName: jalapeno
-  databaseUser: root
-  databasePassword: jalapeno
-
-# Official bitnami/stable charts
-# The charts are defined in the Charts.yaml as dependency
-
-# https://github.com/bitnami/charts/tree/master/bitnami/influxdb
-influxdb:
-  fullnameOverride: influxdb
-  image:
-    repository: bitnami/influxdb
-    tag: 1.8.5 # latest release for oldest influxdb version
-  auth:
-    admin:
-      username: admin
-      password: gsplabgsplab
-  influxdb:
-    extraEnvVars:
-      # Don't change the ordering!
-      - name: INFLUXDB_DB
-        value: "mdt_db"
-      - name: INFLUXDB_USER
-        value: "jalapeno"
-      - name: INFLUXDB_USER_PASSWORD
-        value: "jalapeno"
-    replicaCount: 1
-    service:
+    image: arangodb:3.12.5.2
+    persistence:
+      dataSize: 1Gi
+      appsSize: 1Gi
+    externalAccess:
       type: LoadBalancer
-      loadBalancerIP: 10.8.39.67
-      annotations:
-        metallb.universe.tf/address-pool: load-balanced
+      loadBalancerIP: 10.5.0.131
+      # nodePort: 30852
+    # auth:
+        # rootPassword: jalapeno # default is "jalapeno"
 
-# https://github.com/bitnami/charts/tree/master/bitnami/grafana
-grafana:
-  fullnameOverride: grafana
-  image:
-    repository: bitnami/grafana
-    tag: 10.3.1-debian-11-r2
-  admin:
-    user: root
-    password: jalapeno
-  replicaCount: 1
-  service:
-    type: ClusterIP
-    ports:
-      grafana: 3000
-  ingress:
-    enabled: true
-    hostname: grafana-hawkv6.stud.network.garden # change to your domain
-    tls:
-      - hosts:
-        - grafana-hawkv6.stud.network.garden # change to your domain
-        secretName: ingress-certificate-secret-prod
+  influxdb:
+    image: influxdb:1.12.2-alpine
+    persistence:
+      size: 1Gi
+    externalAccess:
+      type: LoadBalancer
+      loadBalancerIP: 10.5.0.132
+      # type: NodePort
+      # nodePort: 30308
+    # database: mdt_db # default is "mdt_db"
+    # user: admin # default is "admin"
+    # password: jalapeno # default is "jalapeno" 
 
-# https://github.com/bitnami/charts/tree/master/bitnami/kafka
-kafka:
-  fullnameOverride: kafka
-  image:
-    repository: bitnami/kafka
-    tag: 3.6.1-debian-11-r6
-  replicacount: 1
-  externalAccess:
-    enabled: true
-    service:
-      loadBalancerIPs:
-      - 10.8.39.68
-    autoDiscovery:
+messaging: 
+  kafka:
+    name: kafka
+    image: apache/kafka:3.9.1
+    replicas: 1
+    persistence:
       enabled: true
-  serviceAccount:
-    create: true
-  rbac:
-    create: true
+      size: 1Gi
+    externalAccess:
+      loadBalancerIP: 10.5.0.133 # for now only LoadBalancer is supported
+
+  kafkaUi:
+    enabled: true
+    image: ghcr.io/kafbat/kafka-ui:latest
+    externalAccess:
+      type: LoadBalancer
+      loadBalancerIP: 10.5.0.134
+
+grafana:
+  replicas: 1
+  image:
+    tag: 12.1.1
+  # Grafana is too dumb for non-failing upgrades: https://github.com/grafana/helm-charts/issues/1184
+  deploymentStrategy:
+    type: Recreate
+  
+  persistence:
+    enabled: true
+    type: pvc
+    size: 1Gi
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_role: Admin 
+  service:
+    type: LoadBalancer
+    loadBalancerIP: 10.5.0.135
+  deploymentStrategy:
+    type: Recreate 
+  
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: InfluxDB_v1
+          type: influxdb
+          access: proxy
+          user: grafana
+          url: http://influxdb:8086
+          jsonData:
+            dbName: mdt_db 
+            httpMode: GET
+          secureJsonData:
+            password: grafana
+      deleteDatasources:
+        - name: InfluxDB_v1
+          orgId: 1
+
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana-dashboard

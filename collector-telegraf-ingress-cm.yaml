@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "{{ .Values.collectors.telegrafIngress.name }}-config"
+  name: "telegraf-ingress-config"
 data:
   telegraf.conf: |
     [agent]
@@ -14,7 +14,7 @@ data:
       flush_jitter = "0s"
       debug = false
       quiet = false
-      hostname = "telegraf"
+      hostname = "telegraf-ingress"
 
     [[inputs.cisco_telemetry_mdt]]
       transport = "grpc"
@@ -24,32 +24,30 @@ data:
       [inputs.cisco_telemetry_mdt.aliases]
         performance-measurement = "Cisco-IOS-XR-perf-meas-oper:performance-measurement/nodes/node/interfaces/interface-details/interface-detail"
         isis = "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/interfaces/interface"
-        utilization = "openconfig-interfaces:interfaces/interface/state/counters"
         oper-state = "openconfig-interfaces:interfaces/interface/state"
         ipv6-addresses = "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address"
 
 
     [[outputs.kafka]]
-      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      brokers = ["kafka-headless.{{ .Release.Namespace }}:9092"]
       topic = "hawkv6.telemetry.unprocessed"
       data_format="json"
       namepass = ["performance-measurement", "isis"] 
 
     [[outputs.kafka]]
-      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      brokers = ["kafka-headless.{{ .Release.Namespace }}:9092"]
       topic = "hawkv6.openconfig"
       data_format="json"
       namepass = ["oper-state", "ipv6-addresses"] 
+      fielddrop = ["counters/*_octets"] 
 
     [[outputs.kafka]]
-      brokers = ["{{ .Values.kafka.fullnameOverride }}.{{ .Release.Namespace }}.svc:9092"]
+      brokers = ["kafka-headless.{{ .Release.Namespace }}:9092"]
       topic = "jalapeno.telemetry"
-      namedrop = ["performance-measurement", "isis", "oper-state", "ipv6-addresses"] 
-
+      namedrop = ["performance-measurement", "isis", "ipv6-addresses"]  
 
     [[outputs.file]]
       files = ["stdout"]
       rotation_interval = "1h"
       rotation_max_size = "20MB"
       rotation_max_archives = 3
-      data_format = "json" 

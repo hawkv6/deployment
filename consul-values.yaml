@@ -8,16 +8,19 @@ server:
   ports:
     serflan: 
       port: 9301
-  nodeSelector: |
-    hawkv6-consul-server: "true"
+  storage: 1Gi
 client:
   exposeGossipPorts: true
 ui:
   enabled: true
-  ingress:
-    enabled: true
-    hosts:
-      - host: consul-hawkv6.stud.network.garden
+  service:
+    type: LoadBalancer
+    annotations: |
+      'lbipam.cilium.io/ips': 10.5.0.137
+  # ingress:
+  #   enabled: true
+  #   hosts:
+  #     - host: consul-hawkv6.stud.network.garden
 dns: 
   enabled: false
 connectInject:
