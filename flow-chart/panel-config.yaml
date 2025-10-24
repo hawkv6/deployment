@@ -1,11 +1,12 @@
 ---
 
-COLOR_RULES: &COLOR_RULES
-  gradientMode: "discrete"
-  thresholds:
-    - {color: "#73BF69", level: 0}       # Green if traffic >= 0 Bps
-    - {color: "#FF9830", level: 500000}  # Orange if traffic >= 500 KBps
-    - {color: "#F2495C", level: 1000000} # Red if traffic >= 1 MBps
+anchors:
+  COLOR_RULES: &COLOR_RULES
+    gradientMode: "discrete"
+    thresholds:
+      - {color: "#73BF69", level: 0}       # Green if traffic >= 0 Bps
+      - {color: "#FF9830", level: 500000}  # Orange if traffic >= 500 KBps
+      - {color: "#F2495C", level: 1000000} # Red if traffic >= 1 MBps
 
 # Anchor for Bandwidth Label Text Formatting
 # LABEL_TEXT_RULES: &LABEL_TEXT_RULES
@@ -18,7 +19,6 @@ COLOR_RULES: &COLOR_RULES
 #   color: "white"
 
 cells:
-
   # === HOST-C / SITE-C Link ===
   "clab-hawkv6-HOST-C:eth1":
     dataRef: "SITE-C-G0-0-0-1-in"
