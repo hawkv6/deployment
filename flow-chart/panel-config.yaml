@@ -213,17 +213,17 @@ cells:
     fillColor:
       thresholds: *COLOR_RULES
   "cell-clab-hawkv6-SITE-A:Gi0-0-0-0":
-    dataRef: "SITE-A-G0-0-0-1-out"
+    dataRef: "SITE-A-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === HOST-A / SITE-A Link ===
   "cell-clab-hawkv6-HOST-A:eth1":
-    dataRef: "SITE-A-G0-0-0-0-in"
+    dataRef: "SITE-A-G0-0-0-1-in"
     fillColor:
       thresholds: *COLOR_RULES
   "cell-clab-hawkv6-SITE-A:Gi0-0-0-1":
-    dataRef: "SITE-A-G0-0-0-0-out"
+    dataRef: "SITE-A-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
