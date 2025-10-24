@@ -208,7 +208,7 @@ cells:
       thresholds: *COLOR_RULES
 
   # === XR-1 / SITE-A Link ===
-  "cell-clab-hawkv6-XR-1:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-1:Gi0-0-0-0:clab-hawkv6-SITE-A:Gi0-0-0-0":
     dataRef: "XR-1-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
@@ -218,11 +218,11 @@ cells:
       thresholds: *COLOR_RULES
 
   # === HOST-A / SITE-A Link ===
-  "cell-clab-hawkv6-HOST-A:eth1":
+  "cell-clab-hawkv6-HOST-A:eth1:clab-hawkv6-SITE-A:Gi0-0-0-1":
     dataRef: "SITE-A-G0-0-0-1-in"
     fillColor:
       thresholds: *COLOR_RULES
-  "cell-clab-hawkv6-SITE-A:Gi0-0-0-1":
+  "cell-clab-hawkv6-SITE-A:Gi0-0-0-1:clab-hawkv6-HOST-A:eth1":
     dataRef: "SITE-A-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
