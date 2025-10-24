@@ -18,211 +18,211 @@ anchors:
 
 cells:
   # === HOST-C / SITE-C Link ===
-  "clab-hawkv6-HOST-C:eth1":
+  "cell-clab-hawkv6-HOST-C:eth1":
     dataRef: "SITE-C-G0-0-0-1-in"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-SITE-C:Gi0-0-0-1":
+  "cell-clab-hawkv6-SITE-C:Gi0-0-0-1":
     dataRef: "SITE-C-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === HOST-B / SITE-B Link ===
-  "clab-hawkv6-HOST-B:eth1":
+  "cell-clab-hawkv6-HOST-B:eth1":
     dataRef: "SITE-B-G0-0-0-1-in"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-SITE-B:Gi0-0-0-1":
+  "cell-clab-hawkv6-SITE-B:Gi0-0-0-1":
     dataRef: "SITE-B-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === SITE-C / XR-8 Link ===
-  "clab-hawkv6-SITE-C:Gi0-0-0-0":
+  "cell-clab-hawkv6-SITE-C:Gi0-0-0-0":
     dataRef: "SITE-C-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-8:Gi0-0-0-3":
+  "cell-clab-hawkv6-XR-8:Gi0-0-0-3":
     dataRef: "XR-8-G0-0-0-3-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === SITE-B / XR-8 Link ===
-  "clab-hawkv6-SITE-B:Gi0-0-0-0":
+  "cell-clab-hawkv6-SITE-B:Gi0-0-0-0":
     dataRef: "SITE-B-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-8:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-8:Gi0-0-0-2":
     dataRef: "XR-8-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === SITE-C / XR-7 Link ===
-  "clab-hawkv6-SITE-C:Gi0-0-0-2":
+  "cell-clab-hawkv6-SITE-C:Gi0-0-0-2":
     dataRef: "SITE-C-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-7:Gi0-0-0-4":
+  "cell-clab-hawkv6-XR-7:Gi0-0-0-4":
     dataRef: "XR-7-G0-0-0-4-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-8 / XR-7 Link ===
-  "clab-hawkv6-XR-8:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-8:Gi0-0-0-1":
     dataRef: "XR-8-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-7:Gi0-0-0-3":
+  "cell-clab-hawkv6-XR-7:Gi0-0-0-3":
     dataRef: "XR-7-G0-0-0-3-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-8 / XR-6 Link ===
-  "clab-hawkv6-XR-8:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-8:Gi0-0-0-0":
     dataRef: "XR-8-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-6:Gi0-0-0-3":
+  "cell-clab-hawkv6-XR-6:Gi0-0-0-3":
     dataRef: "XR-6-G0-0-0-3-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === SITE-B / XR-6 Link ===
-  "clab-hawkv6-SITE-B:Gi0-0-0-2":
+  "cell-clab-hawkv6-SITE-B:Gi0-0-0-2":
     dataRef: "SITE-B-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-6:Gi0-0-0-4":
+  "cell-clab-hawkv6-XR-6:Gi0-0-0-4":
     dataRef: "XR-6-G0-0-0-4-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-6 / XR-7 Link ===
-  "clab-hawkv6-XR-6:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-6:Gi0-0-0-2":
     dataRef: "XR-6-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-7:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-7:Gi0-0-0-2":
     dataRef: "XR-7-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-7 / XR-5 Link ===
-  "clab-hawkv6-XR-7:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-7:Gi0-0-0-1":
     dataRef: "XR-7-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-5:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-5:Gi0-0-0-2":
     dataRef: "XR-5-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-6 / XR-5 Link ===
-  "clab-hawkv6-XR-6:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-6:Gi0-0-0-1":
     dataRef: "XR-6-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-5:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-5:Gi0-0-0-1":
     dataRef: "XR-5-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-5 / XR-4 Link ===
-  "clab-hawkv6-XR-5:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-5:Gi0-0-0-0":
     dataRef: "XR-5-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-4:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-4:Gi0-0-0-2":
     dataRef: "XR-4-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-7 / XR-3 Link ===
-  "clab-hawkv6-XR-7:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-7:Gi0-0-0-0":
     dataRef: "XR-7-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-3:Gi0-0-0-3":
+  "cell-clab-hawkv6-XR-3:Gi0-0-0-3":
     dataRef: "XR-3-G0-0-0-3-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-4 / XR-3 Link ===
-  "clab-hawkv6-XR-4:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-4:Gi0-0-0-1":
     dataRef: "XR-4-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-3:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-3:Gi0-0-0-2":
     dataRef: "XR-3-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-4 / XR-2 Link ===
-  "clab-hawkv6-XR-4:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-4:Gi0-0-0-0":
     dataRef: "XR-4-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-2:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-2:Gi0-0-0-2":
     dataRef: "XR-2-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-6 / XR-2 Link ===
-  "clab-hawkv6-XR-6:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-6:Gi0-0-0-0":
     dataRef: "XR-6-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-2:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-2:Gi0-0-0-1":
     dataRef: "XR-2-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-3 / XR-2 Link ===
-  "clab-hawkv6-XR-3:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-3:Gi0-0-0-1":
     dataRef: "XR-3-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-2:Gi0-0-0-3":
+  "cell-clab-hawkv6-XR-2:Gi0-0-0-3":
     dataRef: "XR-2-G0-0-0-3-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-3 / XR-1 Link ===
-  "clab-hawkv6-XR-3:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-3:Gi0-0-0-0":
     dataRef: "XR-3-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-1:Gi0-0-0-2":
+  "cell-clab-hawkv6-XR-1:Gi0-0-0-2":
     dataRef: "XR-1-G0-0-0-2-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-2 / XR-1 Link ===
-  "clab-hawkv6-XR-2:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-2:Gi0-0-0-0":
     dataRef: "XR-2-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-XR-1:Gi0-0-0-1":
+  "cell-clab-hawkv6-XR-1:Gi0-0-0-1":
     dataRef: "XR-1-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === XR-1 / SITE-A Link ===
-  "clab-hawkv6-XR-1:Gi0-0-0-0":
+  "cell-clab-hawkv6-XR-1:Gi0-0-0-0":
     dataRef: "XR-1-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-SITE-A:Gi0-0-0-0":
+  "cell-clab-hawkv6-SITE-A:Gi0-0-0-0":
     dataRef: "SITE-A-G0-0-0-1-out"
     fillColor:
       thresholds: *COLOR_RULES
 
   # === HOST-A / SITE-A Link ===
-  "clab-hawkv6-HOST-A:eth1":
+  "cell-clab-hawkv6-HOST-A:eth1":
     dataRef: "SITE-A-G0-0-0-0-in"
     fillColor:
       thresholds: *COLOR_RULES
-  "clab-hawkv6-SITE-A:Gi0-0-0-1":
+  "cell-clab-hawkv6-SITE-A:Gi0-0-0-1":
     dataRef: "SITE-A-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
