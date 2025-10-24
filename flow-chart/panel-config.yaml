@@ -245,9 +245,13 @@ cells:
     label:
       units: "binBps"
       decimalPoints: 0
+    labelColor: 
+      color: "white"
 
   "cell-link_id:clab-hawkv6-SITE-A:Gi0-0-0-1:clab-hawkv6-HOST-A:eth1":
     dataRef: "SITE-A-G0-0-0-0-out"
     label:
       units: "binBps"
       decimalPoints: 0
+    labelColor: 
+      color: "white"
