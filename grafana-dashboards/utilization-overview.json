@@ -1,0 +1,3376 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 500000
+              },
+              {
+                "color": "red",
+                "value": 1000000
+              }
+            ]
+          },
+          "unit": "byte/s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "minVizHeight": 337,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "alias": "[[tag_source]] [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "Null0"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "MgmtEth0/RP0/CPU0/0"
+            }
+          ]
+        }
+      ],
+      "title": "Outgoing Traffic",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*\\s+)?GigabitEthernet(\\d+/\\d+/\\d+/\\d+)",
+            "renamePattern": "$1 G$2"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 500000
+              },
+              {
+                "color": "red",
+                "value": 1000000
+              }
+            ]
+          },
+          "unit": "byte/s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "minVizHeight": 337,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {}
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "alias": "[[tag_source]] [[tag_name]]",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "Null0"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "!=",
+              "value": "MgmtEth0/RP0/CPU0/0"
+            }
+          ]
+        }
+      ],
+      "title": "Incoming Traffic",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*\\s+)?GigabitEthernet(\\d+/\\d+/\\d+/\\d+)",
+            "renamePattern": "$1 G$2"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4B5EB7AC8565B06F"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 9,
+      "options": {
+        "animationControlEnabled": true,
+        "animationsEnabled": true,
+        "debuggingCtr": {
+          "colorsCtr": 0,
+          "dataCtr": 1,
+          "displaySvgCtr": 0,
+          "mappingsCtr": 2,
+          "timingsCtr": 0
+        },
+        "highlighterEnabled": true,
+        "highlighterSelection": "",
+        "panZoomEnabled": true,
+        "panelConfig": "https://raw.githubusercontent.com/hawkv6/deployment/refs/heads/new-helm-update/flow-chart/panel-config.yaml",
+        "siteConfig": "",
+        "svg": "https://raw.githubusercontent.com/hawkv6/deployment/refs/heads/new-helm-update/flow-chart/hawkv6-network.drawio.svg",
+        "testDataEnabled": false,
+        "timeSliderEnabled": true,
+        "timeSliderMode": "local"
+      },
+      "pluginVersion": "1.19.0",
+      "targets": [
+        {
+          "alias": "SITE-A-G0-0-0-1-out",
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-A' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-A-G0-0-0-1-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/in_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-A' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/in_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-1-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/in_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-C' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/in_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-C' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-1-in",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/in_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-B' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/in_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/in_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-B' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-C' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-8' AND \"name\"::tag = 'GigabitEthernet0/0/0/3') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-B' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-8' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-C-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-C' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-C"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-4-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-7' AND \"name\"::tag = 'GigabitEthernet0/0/0/4') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "L",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/4"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-8' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "M",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-7' AND \"name\"::tag = 'GigabitEthernet0/0/0/3') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "N",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-8-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-8' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "O",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-8"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-6' AND \"name\"::tag = 'GigabitEthernet0/0/0/3') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "P",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-B-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-B' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "Q",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-B"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-4-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-6' AND \"name\"::tag = 'GigabitEthernet0/0/0/4') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "R",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/4"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-6' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "S",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-7' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "T",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-7' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "U",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-5' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "V",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-6' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "W",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-5' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "X",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-5-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-5' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "Y",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-5"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-4' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "Z",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-7-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-7' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AA",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-7"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-3' AND \"name\"::tag = 'GigabitEthernet0/0/0/3') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AB",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-4' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AC",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-3' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AD",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-4-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-4' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AE",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-4"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-2' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AF",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-6-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-6' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AG",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-6"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-2' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AH",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-3' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AI",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-3-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-2' AND \"name\"::tag = 'GigabitEthernet0/0/0/3') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AJ",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/3"
+            }
+          ]
+        },
+        {
+          "alias": "XR-3-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-3' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AK",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-3"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-2-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-1' AND \"name\"::tag = 'GigabitEthernet0/0/0/2') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AL",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/2"
+            }
+          ]
+        },
+        {
+          "alias": "XR-2-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-2' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AM",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-2"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-1-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-1' AND \"name\"::tag = 'GigabitEthernet0/0/0/1') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AN",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/1"
+            }
+          ]
+        },
+        {
+          "alias": "XR-1-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'XR-1' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AO",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "XR-1"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        },
+        {
+          "alias": "SITE-A-G0-0-0-0-out",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4B5EB7AC8565B06F"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "20s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "source::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "oper-state",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT difference(max(\"counters/out_octets\")) FROM \"oper-state\" WHERE (\"source\"::tag = 'SITE-A' AND \"name\"::tag = 'GigabitEthernet0/0/0/0') AND \"counters/out_octets\" > 0 AND $timeFilter GROUP BY time(20s), \"source\"::tag, \"name\"::tag fill(null)",
+          "rawQuery": false,
+          "refId": "AP",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "counters/out_octets"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [],
+                "type": "difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source::tag",
+              "operator": "=",
+              "value": "SITE-A"
+            },
+            {
+              "condition": "AND",
+              "key": "name::tag",
+              "operator": "=",
+              "value": "GigabitEthernet0/0/0/0"
+            }
+          ]
+        }
+      ],
+      "title": "Utilization",
+      "type": "andrewbmchugh-flow-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "30s",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30s",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Utilization Overview",
+  "uid": "e1268e31-425f-4047-a5d4-6a6536ff8184",
+  "version": 38
+}
