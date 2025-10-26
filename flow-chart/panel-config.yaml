@@ -219,7 +219,7 @@ cells:
     fillColor:
       thresholds: *COLOR_RULES
   "cell-clab-hawkv6-SITE-A:Gi0-0-0-0:clab-hawkv6-XR-1:Gi0-0-0-0":
-    dataRef: "SITE-A-G0-0-0-1-out"
+    dataRef: "SITE-A-G0-0-0-0-out"
     fillColor:
       thresholds: *COLOR_RULES
 
